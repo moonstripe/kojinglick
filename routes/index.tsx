@@ -26,7 +26,7 @@ export const handler: Handlers = {
                 const firstLine = file.split("\n")[0];
                 const dateLine = file.split("/n")[1]
 
-                console.log(stat)
+                // console.log(stat)
                 blogArticles.push({
                     slug: dirEntry.name,
                     date: dateLine,
