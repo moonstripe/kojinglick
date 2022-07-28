@@ -24,7 +24,8 @@ export const handler: Handlers = {
                 const stat = await Deno.stat(path);
                 const file = await Deno.readTextFile(path);
                 const firstLine = file.split("\n")[0];
-                
+
+                console.log(stat.mtime)
                 blogArticles.push({
                     slug: dirEntry.name,
                     date: new Date(stat.mtime).toDateString(),
