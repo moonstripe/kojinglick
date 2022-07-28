@@ -22,6 +22,6 @@ export default (props: any) => {
     }
     
     return (
-        <button onClick={handleDark}>{mode}</button>
+        <button onClick={IS_BROWSER ? handleDark : () => {}}>{mode}</button>
     )
 }
