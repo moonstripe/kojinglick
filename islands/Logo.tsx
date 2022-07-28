@@ -21,7 +21,7 @@ export default (props: any) => {
     return (
         <a onClick={handleDark}>
             <img
-                src={localStorage.theme === 'dark' ? "/kojin_logo_invert.svg" : "/kojin_logo.svg"}
+                src={IS_BROWSER ? localStorage.theme === 'dark' ? "/kojin_logo_invert.svg" : "/kojin_logo.svg" : "/kojin_logo_invert.svg"}
                 width="10%"
                 alt="A moon"
             />
