@@ -9,8 +9,7 @@ import { IS_BROWSER } from "fresh/runtime.ts";
 
 export default (props: any) => {
 
-    const [mode, setMode] = useState(localStorage.theme)
-    const [children, setChildren] = useState(props.children)
+    const [mode, setMode] = useState(IS_BROWSER ? localStorage.theme : 'dark')
 
     // console.log( props.children)
 
