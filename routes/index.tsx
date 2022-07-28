@@ -21,14 +21,13 @@ export const handler: Handlers = {
             if (dirEntry.isFile) {
                 // console.log(dirEntry.name)
                 const path = `content/${dirEntry.name}`
-                const { birthtime } = await Deno.stat(path);
+                const stat = await Deno.stat(path);
                 const file = await Deno.readTextFile(path);
                 const firstLine = file.split("\n")[0];
-
-
+                
                 blogArticles.push({
                     slug: dirEntry.name,
-                    date: new Date(birthtime).toDateString(),
+                    date: new Date(stat.mtime).toDateString(),
                     title: firstLine
                 });
             }
@@ -46,7 +45,7 @@ export default ({ data, url }: PageProps) => {
             <NavWrappedPage slug={url.pathname} />
             <h1 class={tw`text-xl dark:text-green-200`}>Thoughts</h1>
             {
-                data.blogArticles.map(e => (
+                data.blogArticles.map((e: Post) => (
                     <div class={tw`my-3`}>
                         <a href={`/${e.slug.split('.')[0]}`}>
                             <h1 class={tw`text-xl text-gray-700 dark:text-green-200`}>{e.title.slice(2, e.title.length)}</h1>
