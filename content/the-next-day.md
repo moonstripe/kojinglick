@@ -1,9 +1,10 @@
-# Welcome
+# The Next Day
 
-11:57 PM July 27th, 2022
+11:57 AM July 28th, 2022
 
-To everyone and no one, hello. 
+I've always had a little trouble communicating effectively with myself. The difficulty often comes from the sense that emotions exist behind a cloudy wall, and the best I can do is feel the shape of what it actually is. I may never understand what a pure version of my own anger or sadness might actually be. 
 
-On the other side of viral success, view counts in the millions, and the other isolated clusters of immense internet traffic, most of the internet lays empty. I’ve started a handful of online presences over my life: very few garnered even the attention of my in-person friends and family. I still wonder what all of those abandoned blogs are doing. They’re probably now trafficking pornography or other scams.
+But that makes it even more important to spend as much time trying to make that foggy connection. Emotions change us and we change emotions, so the more often I check in, the more likely I will be able to spot an anomaly in the future.
 
-Perhaps this too will go the way of my adolescent blogs and course-mandated tweeting. But each time I start one of these, there’s a scene of wonder. Like walking into a desert, I lay feeble claim to a little corner of a vast, unknowable expanse.
+Regardless I should look for a professional somewhere.
+
