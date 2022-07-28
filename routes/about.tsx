@@ -9,7 +9,7 @@ export default (props: PageProps) => {
     return (
         <Layout>
             <NavWrappedPage slug={props.url.pathname} />
-            <h1 class={tw`text-xl`}>My name is Kojin Glick.</h1>
+            <h1 class={tw`text-xl dark:text-neutral`}>My name is Kojin Glick.</h1>
         </Layout>
     );
 }

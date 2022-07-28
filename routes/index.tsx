@@ -19,7 +19,7 @@ export const handler: Handlers = {
 
         for await (const dirEntry of Deno.readDir('content/')) {
             if (dirEntry.isFile) {
-                console.log(dirEntry.name)
+                // console.log(dirEntry.name)
                 const path = `content/${dirEntry.name}`
                 const { birthtime } = await Deno.stat(path);
                 const file = await Deno.readTextFile(path);
@@ -35,22 +35,12 @@ export const handler: Handlers = {
         }
 
         return ctx.render({ blogArticles })
-
-        // const url = new URL(req.url).pathname.split('/')
-        // const file = url[2]
-        // const section = url[1]
-
-        // const decoder = new TextDecoder("utf-8");
-        // const markdown = decoder.decode(await Deno.readFile(`./content/hello.md`));
-        // const markup = Marked.parse(markdown)
-
-        // return ctx.render({ markup: markup.content })
     },
 };
 
 
 export default ({ data, url }: PageProps) => {
-    console.log('hello')
+    // console.log('hello')
     return (
         <Layout>
             <NavWrappedPage slug={url.pathname} />
