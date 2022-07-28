@@ -1,7 +1,7 @@
 /** @jsx h */
 import { h } from "preact";
 import { tw } from "@twind";
-import { PageProps } from "$fresh/server.ts";
+import { PageProps } from "fresh/server.ts";
 import NavWrappedPage from '../islands/NavWrappedPage.tsx'
 import Layout from '../components/Layout.tsx'
 

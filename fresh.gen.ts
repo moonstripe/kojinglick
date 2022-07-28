@@ -5,30 +5,26 @@
 import * as $0 from "./routes/[title].tsx";
 import * as $1 from "./routes/_app.tsx";
 import * as $2 from "./routes/about.tsx";
-import * as $3 from "./routes/api/joke.ts";
-import * as $4 from "./routes/index.tsx";
-import * as $$0 from "./islands/Blog.tsx";
-import * as $$1 from "./islands/DarkMode.tsx";
-import * as $$2 from "./islands/Logo.tsx";
-import * as $$3 from "./islands/NavBar.tsx";
-import * as $$4 from "./islands/NavWrappedPage.tsx";
-import * as $$5 from "./islands/Post.tsx";
+import * as $3 from "./routes/index.tsx";
+import * as $$0 from "./islands/DarkMode.tsx";
+import * as $$1 from "./islands/Logo.tsx";
+import * as $$2 from "./islands/NavBar.tsx";
+import * as $$3 from "./islands/NavWrappedPage.tsx";
+import * as $$4 from "./islands/Post.tsx";
 
 const manifest = {
   routes: {
     "./routes/[title].tsx": $0,
     "./routes/_app.tsx": $1,
     "./routes/about.tsx": $2,
-    "./routes/api/joke.ts": $3,
-    "./routes/index.tsx": $4,
+    "./routes/index.tsx": $3,
   },
   islands: {
-    "./islands/Blog.tsx": $$0,
-    "./islands/DarkMode.tsx": $$1,
-    "./islands/Logo.tsx": $$2,
-    "./islands/NavBar.tsx": $$3,
-    "./islands/NavWrappedPage.tsx": $$4,
-    "./islands/Post.tsx": $$5,
+    "./islands/DarkMode.tsx": $$0,
+    "./islands/Logo.tsx": $$1,
+    "./islands/NavBar.tsx": $$2,
+    "./islands/NavWrappedPage.tsx": $$3,
+    "./islands/Post.tsx": $$4,
   },
   baseUrl: import.meta.url,
 };

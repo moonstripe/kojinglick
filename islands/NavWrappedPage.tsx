@@ -2,11 +2,9 @@
 import { h } from "preact";
 import { tw } from "@twind";
 import { useState, useLayoutEffect } from "preact/hooks"
-import { PageProps } from "$fresh/server.ts"
 import NavBar from '../islands/NavBar.tsx'
-import DarkMode from '../islands/DarkMode.tsx'
 import Logo from '../islands/Logo.tsx'
-import { IS_BROWSER } from "https://deno.land/x/fresh@1.0.1/runtime.ts";
+import { IS_BROWSER } from "fresh/runtime.ts";
 
 
 export default (props: any) => {

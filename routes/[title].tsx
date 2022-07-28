@@ -1,8 +1,7 @@
 /** @jsx h */
 import { h } from "preact";
-import { tw } from "@twind";
 import { Marked } from "markdown";
-import { Handlers, PageProps } from "$fresh/server.ts";
+import { Handlers, PageProps } from "fresh/server.ts";
 import NavWrappedPage from '../islands/NavWrappedPage.tsx'
 import Post from '../islands/Post.tsx'
 import Layout from '../components/Layout.tsx'

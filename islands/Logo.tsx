@@ -1,5 +1,5 @@
 /** @jsx h */
-import { IS_BROWSER } from "https://deno.land/x/fresh@1.0.1/runtime.ts";
+import { IS_BROWSER } from "fresh/runtime.ts";
 import { h } from "preact";
 
 export default (props: any) => {

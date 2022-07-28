@@ -2,8 +2,6 @@
 import { h } from "preact";
 import { tw } from "@twind";
 
-import { PageProps } from '$fresh/server.ts'
-
 interface Route {
     name: string
     pathname: string

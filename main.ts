@@ -4,7 +4,7 @@
 /// <reference lib="deno.ns" />
 /// <reference lib="deno.unstable" />
 
-import { InnerRenderFunction, RenderContext, start } from "$fresh/server.ts";
+import { InnerRenderFunction, RenderContext, start } from "fresh/server.ts";
 import manifest from "./fresh.gen.ts";
 
 import { config, setup } from "@twind";

@@ -1,16 +1,21 @@
 /** @jsx h */
 import { h } from "preact";
 import { tw } from "@twind";
-import { Marked } from "markdown";
-import { Handlers, PageProps } from "$fresh/server.ts";
+import { Handlers, PageProps } from "fresh/server.ts";
 import NavWrappedPage from '../islands/NavWrappedPage.tsx'
 import Post from '../islands/Post.tsx'
 import Layout from '../components/Layout.tsx'
 
+interface Post {
+    slug: string,
+    date: any,
+    title: string
+}
+
 export const handler: Handlers = {
     async GET(req, ctx) {
 
-        const blogArticles: string[] = [];
+        const blogArticles: Post[] = [];
 
         for await (const dirEntry of Deno.readDir('content/')) {
             if (dirEntry.isFile) {
