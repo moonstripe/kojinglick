@@ -8,7 +8,7 @@ import Layout from '../components/Layout.tsx'
 
 interface Post {
     slug: string,
-    date: any,
+    date: string,
     title: string
 }
 
@@ -24,11 +24,12 @@ export const handler: Handlers = {
                 const stat = await Deno.stat(path);
                 const file = await Deno.readTextFile(path);
                 const firstLine = file.split("\n")[0];
+                const dateLine = file.split("/n")[1]
 
                 console.log(stat)
                 blogArticles.push({
                     slug: dirEntry.name,
-                    date: new Date(stat.mtime).toDateString(),
+                    date: dateLine,
                     title: firstLine
                 });
             }
