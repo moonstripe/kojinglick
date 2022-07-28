@@ -8,7 +8,7 @@ import DarkMode from '../islands/DarkMode.tsx'
 import Logo from '../islands/Logo.tsx'
 
 
-export default (props: PageProps) => {
+export default (props: any) => {
 
     const [mode, setMode] = useState(localStorage.theme)
     const [children, setChildren] = useState(props.children)

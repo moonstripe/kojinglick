@@ -9,7 +9,7 @@ interface Route {
     pathname: string
 }
 
-const routeMap: Array<Routes> =
+const routeMap: Array<Route> =
 [
     {
         name: "home",
@@ -21,7 +21,7 @@ const routeMap: Array<Routes> =
     },
 ]
 
-export default (props: PageProps) => {
+export default (props: any) => {
     console.log(props.slug)
     return (
         <nav class={props.class}>
