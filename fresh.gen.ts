@@ -6,11 +6,10 @@ import * as $0 from "./routes/[title].tsx";
 import * as $1 from "./routes/_app.tsx";
 import * as $2 from "./routes/about.tsx";
 import * as $3 from "./routes/index.tsx";
-import * as $$0 from "./islands/DarkMode.tsx";
-import * as $$1 from "./islands/Logo.tsx";
-import * as $$2 from "./islands/NavBar.tsx";
-import * as $$3 from "./islands/NavWrappedPage.tsx";
-import * as $$4 from "./islands/Post.tsx";
+import * as $$0 from "./islands/Logo.tsx";
+import * as $$1 from "./islands/NavBar.tsx";
+import * as $$2 from "./islands/NavWrappedPage.tsx";
+import * as $$3 from "./islands/Post.tsx";
 
 const manifest = {
   routes: {
@@ -20,11 +19,10 @@ const manifest = {
     "./routes/index.tsx": $3,
   },
   islands: {
-    "./islands/DarkMode.tsx": $$0,
-    "./islands/Logo.tsx": $$1,
-    "./islands/NavBar.tsx": $$2,
-    "./islands/NavWrappedPage.tsx": $$3,
-    "./islands/Post.tsx": $$4,
+    "./islands/Logo.tsx": $$0,
+    "./islands/NavBar.tsx": $$1,
+    "./islands/NavWrappedPage.tsx": $$2,
+    "./islands/Post.tsx": $$3,
   },
   baseUrl: import.meta.url,
 };

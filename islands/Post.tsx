@@ -1,7 +1,7 @@
 /* Post.tsx */
 
 /** @jsx h */
-import { h } from "preact";
+import { h, Fragment } from "preact";
 import { tw } from "@twind"
 import { useRef, useLayoutEffect } from "preact/hooks";
 
@@ -19,6 +19,12 @@ export default function Post(props: PostProps) {
   })
 
   return (
-    <article ref={el} class={tw`prose dark:text-green-400`}/>
+    <Fragment>
+      <article ref={el} class={tw`prose dark:text-green-400`} />
+      <link rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css" />
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script>
+    </Fragment>
   );
 }
