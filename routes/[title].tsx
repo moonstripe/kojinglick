@@ -1,5 +1,6 @@
 /** @jsx h */
 import { h } from "preact";
+import { useState } from "preact/hooks";
 import { Marked } from "markdown";
 import { Handlers, PageProps } from "fresh/server.ts";
 import NavWrappedPage from '../islands/NavWrappedPage.tsx'
@@ -11,8 +12,6 @@ export const handler: Handlers = {
         const url = new URL(req.url).pathname.split('/')
         const file = url[1]
 
-        console.log('file', file)
-
         const decoder = new TextDecoder("utf-8");
         const markdown = decoder.decode(await Deno.readFile(`./content/${file}.md`));
         const markup = Marked.parse(markdown)
@@ -23,11 +22,10 @@ export const handler: Handlers = {
 
 
 export default ({ data, url }: PageProps) => {
-    console.log('hello')
     return (
         <Layout>
-            <NavWrappedPage slug={url.pathname} />
-            <Post markup={data.markup} />
+            <NavWrappedPage slug={url.pathname}/>
+            <Post markup={data.markup}/>
         </Layout>
     );
 }

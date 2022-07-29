@@ -20,7 +20,6 @@ const routeMap: Array<Route> =
 ]
 
 export default (props: any) => {
-    console.log(props.slug)
     return (
         <nav class={props.class}>
             {

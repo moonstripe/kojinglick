@@ -40,7 +40,6 @@ export const handler: Handlers = {
 
 
 export default ({ data, url }: PageProps) => {
-    // console.log('hello')
     return (
         <Layout>
             <NavWrappedPage slug={url.pathname} />
