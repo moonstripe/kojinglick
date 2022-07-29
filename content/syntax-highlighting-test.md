@@ -14,3 +14,21 @@ And the below code renders as Rust:
     fn main() {
         println!("Hello World");
     };
+    
+Finally this code should pase as raw HTML:
+
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <title>Title of the document</title>
+        </head>
+
+        <body>
+            <p>
+                The content of the document......
+            </p>
+            
+         </body>
+     </html>
+     
+Time for tutorials
