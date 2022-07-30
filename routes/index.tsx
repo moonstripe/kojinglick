@@ -3,7 +3,6 @@ import { h } from "preact";
 import { tw } from "@twind";
 import { Handlers, PageProps } from "fresh/server.ts";
 import NavWrappedPage from '../islands/NavWrappedPage.tsx'
-import Post from '../islands/Post.tsx'
 import Layout from '../components/Layout.tsx'
 
 interface Post {
@@ -17,19 +16,18 @@ export const handler: Handlers = {
 
         const blogArticles: Post[] = [];
 
-        for await (const dirEntry of Deno.readDir('content/')) {
-            if (dirEntry.isFile) {
-                // console.log(dirEntry.name)
-                const path = `content/${dirEntry.name}`
-                const stat = await Deno.stat(path);
+        for await (const item of Deno.readDir('content/')) {
+            if (item.isFile) {
+                // console.log(item.name)
+                const path = `content/${item.name}`
                 const file = await Deno.readTextFile(path);
-                const firstLine = file.split("\n")[0];
-                const dateLine = file.split("\n")[2]
+                const titleString = file.split("\n")[0];
+                const dateString = file.split("\n")[2]
 
                 blogArticles.push({
-                    slug: dirEntry.name,
-                    date: dateLine,
-                    title: firstLine
+                    slug: item.name,
+                    date: dateString,
+                    title: titleString
                 });
             }
         }
