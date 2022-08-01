@@ -13,8 +13,6 @@ export const handler: Handlers = {
         const url = new URL(req.url).pathname.split('/')
         const file = url[1]
 
-        console.log(`content/${file}`)
-
         // Build Meta
         const meta: Meta = {};
 
@@ -34,8 +32,6 @@ export const handler: Handlers = {
         const decoder = new TextDecoder("utf-8");
         const markdown = decoder.decode(await Deno.readFile(`./content/${file}.md`));
         const markup = Marked.parse(markdown)
-
-        console.log(meta)
 
         return ctx.render({ markup: markup.content, seo: meta  })
     },

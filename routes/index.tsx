@@ -50,15 +50,15 @@ export default ({ data, url }: PageProps) => {
 
             <h1 class={tw`text-transparent text-8xl bg-clip-text bg-gradient-to-br dark:from-green-400 dark:via-lime-200 dark:to-yellow-600 from-yellow-600 via-lime-200 to-green-400 mb-4`}>Hello, traveler</h1>
 
-            <p class={tw`text-gray-600 dark:text-green-400 mb-4`}>You may be wondering what there is here. Right now, there's pretty much only my thoughts.</p>
+            <p class={tw`text-gray-600 dark:text-green-400 mb-4 text-xl`}>You may be wondering what there is here. Right now, there's pretty much only my thoughts.</p>
 
-            <h1 class={tw`text-xl dark:text-green-50`}>Thoughts</h1>
+            <h1 class={tw`text-4xl dark:text-green-50`}>Thoughts</h1>
             {
                 data.blogArticles.map((e: Post) => (
                     <div class={tw`my-3`}>
                         <a href={`/${e.slug.split('.')[0]}`}>
-                            <h1 class={tw`text-xl text-gray-700 dark:text-green-200`}>{e.title.slice(2, e.title.length)}</h1>
-                            <p class={tw`text-sm text-gray-500 dark:text-green-400`}>{e.date}</p>
+                            <h1 class={tw`text-2xl text-gray-700 dark:text-green-200`}>{e.title.slice(2, e.title.length)}</h1>
+                            <p class={tw`text-lg text-gray-500 dark:text-green-400`}>{e.date}</p>
                         </a>
                     </div>
                 ))
