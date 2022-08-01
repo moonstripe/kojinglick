@@ -25,6 +25,7 @@ export const handler: Handlers = {
         meta.title = titleString;
         meta.description = descString;
         meta.type = "article";
+        meta.image = "/kojin_logo.svg"
 
 
         // Build Content
