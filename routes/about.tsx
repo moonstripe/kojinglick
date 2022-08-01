@@ -24,6 +24,8 @@ export default (props: PageProps) => {
 
                 <li class={tw`text-gray-600 dark:text-green-400 mb-2`}>I am a Master's Candidate in <a href='https://www.middlebury.edu/institute/academics/degree-programs/nonproliferation-terrorism-studies' target="_blank" class={tw`text-black dark:text-neutral`}>Non-Proliferation and Terrorism Studies</a> at <a href='https://www.middlebury.edu/institute/' target="_blank" class={tw`text-black dark:text-neutral`}>Middlebury Institute for International Studies at Monterey</a>.</li>
 
+                <li class={tw`text-gray-600 dark:text-green-400 mb-2`}>I am certified in <a href='https://www.parchment.com/u/award/d94292951a664e9746f8dbf22a58d844' target="_blank" class={tw`text-black dark:text-neutral`}>Full-Stack Web Development</a> from <a href='https://extension.berkeley.edu/public/category/courseCategoryCertificateProfile.do?method=load&certificateId=32408422' target="_blank" class={tw`text-black dark:text-neutral`}>UC Berkeley</a>.</li>
+                
                 <li class={tw`text-gray-600 dark:text-green-400`}>I have undergraduate degrees in  <a href='https://mediastudies.ugis.berkeley.edu/' target="_blank" class={tw`text-black dark:text-neutral`}>Media Studies</a> and <a href='https://polisci.berkeley.edu/' target="_blank" class={tw`text-black dark:text-neutral`}>Political Science</a> from <a href='https://www.berkeley.edu/' target="_blank" class={tw`text-black dark:text-neutral`}>UC Berkeley</a>.</li>
             </ul>
 
