@@ -19,11 +19,11 @@ export const handler: Handlers = {
         const meta: Meta = {};
 
         const readFile = await Deno.readTextFile(`content/${file}.md`);
-        const titleString = readFile.split("\n")[0];
-        const descString = readFile.split("\n")[4]
+        const titleString = readFile.split("\n")[0].replace(/[\W_]+/g,"");
+        const descString = readFile.split("\n")[4].replace(/[\W_]+/g,"")
 
-        meta.title = titleString.replace(/[^a-z0-9]/gi, '');
-        meta.description = descString.replace(/[^a-z0-9]/gi, '');
+        meta.title = titleString;
+        meta.description = descString;
         meta.type = "article";
 
 
