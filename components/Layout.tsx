@@ -32,17 +32,21 @@ const SEO = ({ customMeta }: Meta) => {
 
             <meta property="og:image" content={meta.image} />
 
+            <meta property="og:image:secure_url" content={meta.image} />
+
             <meta property="og:url" content={meta.url} />
 
             <meta property="og:site_name" content={meta.title} />
+
+            <meta property="og:image:type" content="image/svg" />
+
+            <meta property="og:image:alt" content="A moon covered by clouds." />
 
             {/* Twitter */}
 
             <meta name="twitter:title" content={meta.title} />
 
             <meta name="twitter:description" content={meta.description} />
-
-            <meta name="twitter:image" content={meta.image} />
 
             <meta name="twitter:site" content="@kojinglick" />
 
