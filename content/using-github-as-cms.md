@@ -292,4 +292,4 @@ In a few seconds, you should be able to see your new blog, hosted on ".deno.dev"
 
 Hopefully, your mind is as blown as mine was when I cranked this project out in 4 hours. Fresh and Deno provide a very streamlined DX that is hard to beat, especially given what's out there in the space currently.
 
-You can find the source code for the project here.
+You can find the source code for the project <a href="https://github.com/moonstripe/demo-github-cms" target="_blank" rel="noopener noreferrer">here</a> and a live demo of the blog <a href="https://simple-blog.deno.dev/welcome" target="_blank" rel="noopener noreferrer">here</a>.
