@@ -19,8 +19,8 @@ export const handler: Handlers = {
         const meta: Meta = {};
 
         const readFile = await Deno.readTextFile(`content/${file}.md`);
-        const titleString = readFile.split("\n")[0].replace(/[\W_]+/g," ");
-        const descString = readFile.split("\n")[4].replace(/[\W_]+/g," ")
+        const titleString = readFile.split("\n")[0].replace(/[\W_]+/g," ").trim();
+        const descString = readFile.split("\n")[4].replace(/[\W_]+/g," ").trim();
 
         meta.title = titleString;
         meta.description = descString;
