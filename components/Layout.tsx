@@ -11,7 +11,7 @@ const SEO = ({ customMeta }: Meta) => {
         type: customMeta.meta.type ? customMeta.meta.type : "website",
         description: customMeta.meta.description ? customMeta.meta.description : "A collections of thoughts originating from the mind of Kojin.",
         url: customMeta.meta.url ? customMeta.meta.url : "https://www.kojinglick.com/",
-        image: customMeta.meta.image ? customMeta.meta.image : "https://www.kojinglick.com/kojin_logo.svg",
+        image: customMeta.meta.image ? customMeta.meta.image : "https://www.kojinglick.com/kojin_logo.png",
         ...customMeta.meta
     }
 
