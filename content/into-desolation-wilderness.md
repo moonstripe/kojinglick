@@ -43,7 +43,7 @@ Dinner eaten, bear canisters packed by 23:00.
 
 ![Evergreen woods bathing in the sunset](/img/0722desolation2.jpeg)
 
-## July 30th
+## July 31st
 
 Wake up to incessant buzzing at 7:00. I give up trying to go back to bed and I go to the bathroom, and catch Ari also awake. We take the bear canisters back to camp. Besides the ants in the trash, no animal interference occurred over the night. Toby's hammock calls to me, and I return to sleep until 9:30 to the sounds of others awake. 
 
