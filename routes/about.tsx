@@ -8,7 +8,7 @@ import Layout from '../components/Layout.tsx'
 export default (props: PageProps) => {
     const meta = {
         title: "About Kojin",
-        description: "Learn more about my story and projects.",
+        description: "Digital explorer, life-long student, and web developer.",
         type: "website"
     }
     return (
