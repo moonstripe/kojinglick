@@ -26,6 +26,7 @@ export const handler: Handlers = {
         meta.description = descString;
         meta.type = "article";
         meta.image = "https://www.kojinglick.com/kojin_logo.png";
+        meta.url = req.url
 
 
         // Build Content
