@@ -295,7 +295,7 @@ Next, let's change the "deno.json". Right now, the `start` command runs the deve
         "importMap": "./import_map.json"
     }
 
-Finally, create an account on <a href="https://deno.com/deploy/docs" target="_blank" rel="noopener noreferrer">Deno Deploy</a> by clicking the "Sign In" Link. Deploying to Deno Deploy is as easy as connecting your Github account, selecting the repository that has your blog, and clicking "Link". Read more <a href="https://deno.com/deploy/docs" target="_blank" rel="noopener noreferrer">here</a>.
+Finally, create an account on <a href="https://deno.com/deploy/docs" target="_blank" rel="noopener noreferrer">Deno Deploy</a> by clicking the "Sign In" link. Deploying to Deno Deploy is as easy as connecting your Github account, selecting the repository that has your blog, and clicking "Link". Read more <a href="https://deno.com/deploy/docs" target="_blank" rel="noopener noreferrer">here</a>.
 
 In a few seconds, you should be able to see your new blog, hosted on "[slug].deno.dev".
 
