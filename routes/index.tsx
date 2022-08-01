@@ -48,7 +48,7 @@ export default ({ data, url }: PageProps) => {
         <Layout meta={meta}>
             <NavWrappedPage slug={url.pathname} />
 
-            <h1 class={tw`text-transparent text-8xl bg-clip-text bg-gradient-to-br dark:from-green-400 dark:via-lime-200 dark:to-yellow-600 from-yellow-600 via-lime-200 to-green-400 mb-4`}>Hello, traveler</h1>
+            <h1 class={tw`text-transparent text-8xl bg-clip-text bg-gradient-to-br dark:from-green-400 dark:via-lime-200 dark:to-yellow-600 from-yellow-600 via-lime-200 to-green-400 mb-4`}>Hello</h1>
 
             <p class={tw`text-gray-600 dark:text-green-400 mb-4 text-xl`}>You may be wondering what there is here. Right now, there's pretty much only my thoughts.</p>
 
