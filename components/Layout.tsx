@@ -10,8 +10,8 @@ const SEO = ({ customMeta }: Meta) => {
         title: customMeta.meta.title ? customMeta.meta.title : "Kojin's Blog",
         type: customMeta.meta.type ? customMeta.meta.type : "website",
         description: customMeta.meta.description ? customMeta.meta.description : "A collections of thoughts originating from the mind of Kojin.",
-        url: customMeta.meta.url ? customMeta.meta.url : "www.kojinglick.com/",
-        image: customMeta.meta.image ? customMeta.meta.image : "/kojin_logo.svg",
+        url: customMeta.meta.url ? customMeta.meta.url : "https://www.kojinglick.com/",
+        image: customMeta.meta.image ? customMeta.meta.image : "https://www.kojinglick.com/kojin_logo.svg",
         ...customMeta.meta
     }
 
