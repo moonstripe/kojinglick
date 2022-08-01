@@ -21,7 +21,7 @@ export default function Post(props: PostProps) {
 
   return (
     <Fragment>
-      <article ref={el} class={tw`prose dark:prose-yellow dark:text-green-400`} />
+      <article ref={el} class={tw`prose text-xl dark:prose-yellow dark:text-green-400`} />
 
       <Fragment>
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
