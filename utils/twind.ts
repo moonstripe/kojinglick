@@ -5,7 +5,7 @@ export * from "twind";
 export const config: Configuration = {
   theme: {
     fontFamily: {
-      sans: "Inconsolata",
+      sans: "Inter",
     },
     extend: {
       colors: {

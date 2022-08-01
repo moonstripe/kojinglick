@@ -40,7 +40,7 @@ export const handler: Handlers = {
 export default ({ data, url }: PageProps) => {
     const meta = {
         title: "Kojin Glick",
-        description: "Everything I have learned, am learning and will learn.",
+        description: "Everything I have learned, am learning, and will learn.",
         type: "homepage"
     }
 
