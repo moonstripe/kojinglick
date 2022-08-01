@@ -12,7 +12,7 @@ interface Post {
 }
 
 export const handler: Handlers = {
-    async GET(req, ctx) {
+    async GET(_, ctx) {
 
         const blogArticles: Post[] = [];
 
@@ -38,8 +38,14 @@ export const handler: Handlers = {
 
 
 export default ({ data, url }: PageProps) => {
+    const meta = {
+        title: "Kojin Glick",
+        description: "Everything I have learned, am learning and will learn.",
+        type: "homepage"
+    }
+
     return (
-        <Layout>
+        <Layout meta={meta}>
             <NavWrappedPage slug={url.pathname} />
 
             <h1 class={tw`text-transparent text-8xl bg-clip-text bg-gradient-to-br dark:from-green-400 dark:via-lime-200 dark:to-yellow-600 from-yellow-600 via-lime-200 to-green-400 mb-4`}>Hello, traveler</h1>

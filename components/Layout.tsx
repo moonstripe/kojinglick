@@ -1,11 +1,68 @@
 /** @jsx h */
 import { h } from "preact";
 import { tw } from "@twind";
+import { Head } from "fresh/runtime.ts";
+import { Meta, LayoutProps } from "../utils/types/index.ts"
 
-export default (props: any) => {
+const SEO = ({ customMeta }: Meta) => {
+
+    const meta = {
+        title: customMeta.meta.title ? customMeta.meta.title : "Kojin's Blog",
+        type: customMeta.meta.type ? customMeta.meta.type : "website",
+        description: customMeta.meta.description ? customMeta.meta.description : "A collections of thoughts originating from the mind of Kojin.",
+        url: customMeta.meta.url ? customMeta.meta.url : "www.kojinglick.com/",
+        image: customMeta.meta.image ? customMeta.meta.image : "/kojin_logo.svg",
+        ...customMeta.meta
+    }
+
+    return (
+        <Head>
+            <title>{meta.title}</title>
+
+            {/* Robots.txt */}
+            <meta name="robots" content="index, follow"/>
+
+            {/* Open Graph */}
+
+            <meta property="og:type" content={meta.type} />
+
+            <meta property="og:title" content={meta.title} />
+
+            <meta property="og:description" content={meta.description} />
+
+            <meta property="og:image" content={meta.image} />
+
+            <meta property="og:url" content={meta.url} />
+
+            <meta property="og:site_name" content={meta.title} />
+
+            {/* Twitter */}
+
+            <meta name="twitter:title" content={meta.title} />
+
+            <meta name="twitter:description" content={meta.description} />
+
+            <meta name="twitter:image" content={meta.image} />
+
+            <meta name="twitter:site" content="@kojinglick" />
+
+            <meta name="twitter:creator" content="@kojinglick" />
+
+            {/* Canonical */}
+
+            <link rel="canonical" href="https://kojinglick.com/" />
+
+            <link rel="canonical" href="https://www.kojinglick.com/" />
+
+        </Head>
+    )
+}
+
+export default ({ children, ...customMeta }: LayoutProps) => {
     return (
         <div class={tw`mx-auto mb-4 max-w-screen-md w-8/12`}>
-            {props.children}
+            <SEO customMeta={customMeta}/>
+            {children}
         </div>
     )
 }

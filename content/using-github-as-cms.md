@@ -10,19 +10,19 @@ When I build a blog for a client, I try to consider a couple of things beforehan
 2. How will I access the content?
 3. How will I create the content?
 
-By considering these things, I can settle on a front-end/content management stack that is effective at completing the task at hand. For example, when building <a href="https://privacycode.ai/" target="_blank" rel="noopener noreferrer">PrivacyCode</a>, I settled on using server-side rendered <a href="https://reactjs.org/" target="_blank" rel="noopener noreferrer">React</a> application with a <a href="https://sanity.io/" target="_blank" rel="noopener noreferrer">Sanity</a> content management system by answering those questions as follows:
+By considering these things, I can settle on a front-end/content management stack that is effective at completing the task at hand. For example, when building <a href="https://privacycode.ai/" target="_blank" rel="noopener noreferrer">PrivacyCode</a>, I settled on using a server-side rendered <a href="https://reactjs.org/" target="_blank" rel="noopener noreferrer">React</a> application with a <a href="https://sanity.io/" target="_blank" rel="noopener noreferrer">Sanity</a> content management system by answering those questions as follows:
 
 1. I need to store it somewhere persistent, secure, and offsite.
 2. I need a secure way of accessing the data, like GraphQL or a REST API.
 3. Content needs to be draftable by a content team.
 
-But for myself, these considerations are a little overkill. I'm not sharing anything business critical from <a href="https://moonstripe.com/" target="_blank" rel="noopener noreferrer">my business</a>, and I don't have a content team to worry about. I'm optimizing for convenience, not security or propriety. Besides, as I add complexity to this blog project, the harder it is to actually keep to a regular posting pattern. I actually do want to use it to chronicle what's going on in my life. Let's go back to those questions:
+But for myself, these considerations are a little overkill. I'm not sharing anything critical to <a href="https://moonstripe.com/" target="_blank" rel="noopener noreferrer">my business</a>, and I don't have a content team to worry about. I'm optimizing for convenience, not security or propriety. Besides, as I add complexity to this blog project, it becomes harder to actually keep to a regular posting pattern. I actually do want to use it to chronicle what's going on in my life. Let's go back to those questions:
 
 1. I can store my content somewhere easy and accessible.
 2. I can access the content through a filesystem, rather than deal with a REST API or GraphQL.
 3. I can create a Markdown file in that filesystem whenever I want.
 
-I've dreamed of actually implementing something that looks decent with a skeleton this simple. Here's how I implemented it.
+I've dreamt of actually implementing something that looks decent with a skeleton this simple. Here's how I implemented it.
 
 ## Fresh and Deno Deploy
 
@@ -238,7 +238,7 @@ This is a lot like when you created the blog index, but this time we're also imp
         }
     }
 
-Next, we're going to add another handler, but instead of pulling metadata from our "/content" folder, we'll be extracting the Markdown content into our component in the `markup` property. You can choose to make another type interface for the content, but since I'm not looping over anything, it's trival to remember that the markup content is stored in `props.data.markup`
+Next, we're going to add another handler, but instead of pulling metadata from our "/content" folder, we'll be extracting the Markdown content into our component in the `markup` property. You can choose to make another type interface for the content, but since I'm not looping over anything, it's trival to remember that the markup content is stored in `props.data.markup`.
 
     export const handler: Handlers = {
     async GET(req, ctx) {
@@ -290,6 +290,6 @@ In a few seconds, you should be able to see your new blog, hosted on ".deno.dev"
 
 ## Conclusion
 
-Hopefully, your mind is as blown as mind was when I cranked this project out in 4 hours. Fresh and Deno provide a very streamlined DX that is hard to beat, especially given what's out there in the space currently.
+Hopefully, your mind is as blown as mine was when I cranked this project out in 4 hours. Fresh and Deno provide a very streamlined DX that is hard to beat, especially given what's out there in the space currently.
 
 You can find the source code for the project here.

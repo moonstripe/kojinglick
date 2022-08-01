@@ -6,8 +6,13 @@ import NavWrappedPage from '../islands/NavWrappedPage.tsx'
 import Layout from '../components/Layout.tsx'
 
 export default (props: PageProps) => {
+    const meta = {
+        title: "About Kojin",
+        description: "Learn more about my story and projects.",
+        type: "website"
+    }
     return (
-        <Layout>
+        <Layout meta={meta}>
             <NavWrappedPage slug={props.url.pathname} />
             <h1 class={tw`text-transparent text-8xl bg-clip-text bg-gradient-to-br dark:from-green-400 dark:via-lime-200 dark:to-yellow-600 from-yellow-600 via-lime-200 to-green-400 mb-4`}>Kojin Glick</h1>
 
