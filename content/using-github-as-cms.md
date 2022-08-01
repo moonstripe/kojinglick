@@ -260,8 +260,8 @@ Finally, let's render the post in this component.
     export default ({ data }) => {
         return (
             <Fragment>
-            <a href='/'>back to home</a>
-            <Post markup={data.markup}/>
+                <a href='/'>back to home</a>
+                <Post markup={data.markup}/>
             </Fragment>
         );
     }
