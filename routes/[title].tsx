@@ -22,8 +22,8 @@ export const handler: Handlers = {
         const titleString = readFile.split("\n")[0];
         const descString = readFile.split("\n")[4]
 
-        meta.title = titleString.slice(2, titleString.length);
-        meta.description = descString;
+        meta.title = titleString.replace(/[^a-z0-9]/gi, '');
+        meta.description = descString.replace(/[^a-z0-9]/gi, '');
         meta.type = "article";
 
 
