@@ -6,6 +6,7 @@ import NavWrappedPage from '../islands/NavWrappedPage.tsx'
 import Post from '../islands/Post.tsx'
 import Layout from '../components/Layout.tsx'
 import { Meta } from "../utils/types/index.ts"
+import Side from "../islands/BlogSidebar.tsx";
 
 export const handler: Handlers = {
 
@@ -33,7 +34,7 @@ export const handler: Handlers = {
         const markdown = decoder.decode(await Deno.readFile(`./content/${file}.md`));
         const markup = Marked.parse(markdown)
 
-        return ctx.render({ markup: markup.content, seo: meta  })
+        return ctx.render({ markup: markup.content, markdown: readFile, seo: meta  })
     },
 };
 
@@ -42,6 +43,7 @@ export default ({ data, url }: PageProps) => {
     return (
         <Layout meta={data.seo}>
             <NavWrappedPage slug={url.pathname}/>
+            <Side markdown={data.markdown}/>
             <Post markup={data.markup}/>
         </Layout>
     );

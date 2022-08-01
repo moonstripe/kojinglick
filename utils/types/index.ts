@@ -15,3 +15,11 @@ export interface LayoutProps {
     meta: Meta
 }
 
+export interface PostProps {
+    markup: string;
+}
+
+export interface SideProps {
+    markdown: string;
+}
+

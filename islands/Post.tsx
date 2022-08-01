@@ -4,10 +4,7 @@
 import { h, Fragment } from "preact";
 import { tw } from "@twind";
 import { useRef, useLayoutEffect} from "preact/hooks";
-
-interface PostProps {
-  markup: string;
-}
+import { PostProps } from '../utils/types/index.ts'
 
 export default function Post(props: PostProps) {
   const el = useRef<HTMLDivElement>(null)
