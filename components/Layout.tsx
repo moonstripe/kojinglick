@@ -19,6 +19,10 @@ const SEO = ({ customMeta }: Meta) => {
         <Head>
             <title>{meta.title}</title>
 
+            {/* Keywords */}
+
+            <meta name="keywords" content="professional, web developer, digital marketing, website designer, javascript, typescript, programming, development, kojin, glick, Kojin, Glick"/>
+
             {/* Robots.txt */}
             <meta name="robots" content="index, follow"/>
 
