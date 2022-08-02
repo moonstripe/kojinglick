@@ -1,7 +1,7 @@
 /** @jsx h */
 import { h } from "preact";
 import { tw } from "@twind";
-import { useRef, useLayoutEffect } from "preact/hooks";
+import { useLayoutEffect } from "preact/hooks";
 import { SideProps } from "../utils/types/index.ts"
 
 export default function Side({ markdown }: SideProps) {
@@ -22,7 +22,7 @@ export default function Side({ markdown }: SideProps) {
                 {
                     titles.map((e, i) =>
                         e.slice(0, 3) === "###" ? (
-                            <li class={tw`ml-2 text-sm hover:text-black text-gray dark:hover:text-green-400`}>
+                            <li class={tw`ml-2 text-sm text-gray hover:text-black dark:hover:text-green-400`}>
                                 <a href={`#${e.slice(3, e.length).trim().replaceAll(' ', '-').replaceAll("'", '-').toLowerCase()}`}>
                                     <p class={tw`line-clamp-`}>
                                         {e.replace(/[^\w'-]/g, " ").trim()}
