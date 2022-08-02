@@ -54,8 +54,6 @@ const SEO = ({ customMeta }: Meta) => {
 
             {/* Canonical */}
 
-            <link rel="canonical" href="https://kojinglick.com/" />
-
             <link rel="canonical" href="https://www.kojinglick.com/" />
 
         </Head>
