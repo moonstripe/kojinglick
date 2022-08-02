@@ -57,5 +57,9 @@ Chloe take this candid photo of me on the way down.
 
 ![Me in forest](/img/0722desolation4.jpeg)
 
+Toby catches this amazing pull-focused shot.
+
+![A wildflower is foregrounded in front of a party of hikers](/img/0722desolation5.jpeg)
+
 We reach the cars at around 15:00. Some lunch, repacking, goodbyes, and then back home. Stu, Chloe, Toby and I get to Berkeley for pizza. Delicious. 
 
