@@ -54,7 +54,7 @@ export default ({ data, url }: PageProps) => {
 
             <h1 class={tw`text-4xl dark:text-green-50`}>Thoughts</h1>
             {
-                data.blogArticles.map((e: Post) => (
+                data.blogArticles.map((e: PostModel) => (
                     <div class={tw`my-3`}>
                         <a href={`/${e.slug.split('.')[0]}`}>
                             <h1 class={tw`text-2xl text-gray-700 dark:text-green-200`}>{e.title.slice(2, e.title.length)}</h1>
