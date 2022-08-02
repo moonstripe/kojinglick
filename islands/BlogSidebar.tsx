@@ -13,7 +13,7 @@ export default function Side({ markdown }: SideProps) {
     // style={{overflow: 'hidden', display: '-webkit-box', '-webkit-box-orient': 'vertical', '-webkit-line-clamp': '1'}} 
 
     return (
-        <nav class={tw`mb-4 fixed md:left-32 xl:left-32 2xl:left-1/4 top-1/4 text-base md:invisible lg:visible dark:text-green-600`} style={{ maxWidth: "20ch" }}>
+        <nav class={tw`mb-4 fixed md:left-32 xl:left-32 2xl:left-1/4 top-1/4 text-base md:visible invisible dark:text-green-600`} style={{ maxWidth: "20ch" }}>
             <ul>
                 {
                     titles.map((e, i) =>
