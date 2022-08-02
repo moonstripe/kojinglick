@@ -53,7 +53,7 @@ Right when it gets flat, Toby and I find this curious mushroom.
 
 ![Skull-shaped mushroom](/img/0722desolation3.jpeg)
 
-Chloe take this candid photo of me on the way down.
+Chloe takes this candid photo of me on the way down.
 
 ![Me in forest](/img/0722desolation4.jpeg)
 
