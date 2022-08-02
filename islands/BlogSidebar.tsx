@@ -1,7 +1,6 @@
 /** @jsx h */
 import { h } from "preact";
 import { tw } from "@twind";
-import { useLayoutEffect } from "preact/hooks";
 import { SideProps } from "../utils/types/index.ts"
 
 export default function Side({ markdown }: SideProps) {
@@ -9,9 +8,6 @@ export default function Side({ markdown }: SideProps) {
 
     const titles = markdown.split('\n').filter(l => l.slice(0, 2) === "##")
 
-    useLayoutEffect(() => {
-        console.log(titles)
-    }, [])
 
 
     // style={{overflow: 'hidden', display: '-webkit-box', '-webkit-box-orient': 'vertical', '-webkit-line-clamp': '1'}} 

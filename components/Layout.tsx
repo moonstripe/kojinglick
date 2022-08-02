@@ -6,7 +6,7 @@ import { Meta, LayoutProps } from "../utils/types/index.ts"
 
 const SEO = ({ customMeta }: Meta) => {
 
-    const meta = {
+    const meta: Meta = {
         title: customMeta.meta.title ? customMeta.meta.title : "Kojin's Blog",
         type: customMeta.meta.type ? customMeta.meta.type : "website",
         description: customMeta.meta.description ? customMeta.meta.description : "A collections of thoughts originating from the mind of Kojin.",
@@ -18,10 +18,6 @@ const SEO = ({ customMeta }: Meta) => {
     return (
         <Head>
             <title>{meta.title}</title>
-
-            {/* Keywords */}
-
-            <meta name="keywords" content="professional, web developer, digital marketing, website designer, javascript, typescript, programming, development, kojin, glick, Kojin, Glick"/>
 
             {/* Robots.txt */}
             <meta name="robots" content="index, follow"/>

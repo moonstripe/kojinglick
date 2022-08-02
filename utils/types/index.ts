@@ -11,8 +11,8 @@ export interface Meta {
 
 
 export interface LayoutProps {
-    children: ComponentChildren,
-    meta: Meta
+    children: ComponentChildren;
+    meta: Meta;
 }
 
 export interface PostProps {
@@ -21,5 +21,16 @@ export interface PostProps {
 
 export interface SideProps {
     markdown: string;
+}
+
+export interface RandomProps {
+    currentSlug: string;
+    postList: PostModel[];
+}
+
+export interface PostModel {
+    slug: string,
+    date: string,
+    title: string
 }
 

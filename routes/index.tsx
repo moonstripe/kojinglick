@@ -2,19 +2,19 @@
 import { h } from "preact";
 import { tw } from "@twind";
 import { Handlers, PageProps } from "fresh/server.ts";
+import { PostModel } from '../utils/types/index.ts'
 import NavWrappedPage from '../islands/NavWrappedPage.tsx'
 import Layout from '../components/Layout.tsx'
 
-interface Post {
-    slug: string,
-    date: string,
-    title: string
-}
-
 export const handler: Handlers = {
-    async GET(_, ctx) {
+    async GET(req, ctx) {
+        // Log Visitor
 
-        const blogArticles: Post[] = [];
+        console.log(req)
+
+        // Enum Files
+
+        const blogArticles: PostModel[] = [];
 
         for await (const item of Deno.readDir('content/')) {
             if (item.isFile) {
