@@ -85,7 +85,9 @@ When you initialized the Fresh project, it set up the following file structure i
 
 For the sake of my blog project, I added two more folders: "/components" to store my non-interactive, layout components and "/content" to store my Markdown files. In the "/content" folder, add a new file called "welcome.md" and populate it with:
 
-<pre class="markdown"><code>// welcome.md
+> content/welcome.md
+
+<pre class="markdown"><code>
 # First Post
 
 [The Current Time and Date]
@@ -102,7 +104,8 @@ Since the goal is simplicity, we're going to list out the blog contents on the h
 
 In "/routes/index.tsx", we need to set up the preact component like this:
 
-    // routes/index.tsx
+> routes/index.tsx
+
     /** @jsx h */
     import { h, Fragment } from "preact";
     import { tw } from "@twind";
@@ -117,6 +120,7 @@ Finally, we import the Handlers and PageProps types from "fresh/server.ts".
 Next, let's build the handler that populates our page with our blog content. In "myblog/routes/index.tsx", add the following:
 
 > routes/index.tsx
+
     interface Post {
         slug: string,
         date: string,
@@ -155,6 +159,7 @@ The exported GET handler creates an array of Posts called `blog articles` and po
 Finally, we'll add the component itself:
 
 > routes/index.tsx
+
     export default ({ data }: PageProps) => {
         return (
             <Fragment>
@@ -194,6 +199,7 @@ Let's build our first island called Post by creating the file "/islands/Post.tsx
 Islands are started like any other component, but now we can import hooks:
 
 > islands/Post.tsx
+
     /** @jsx h */
     import { h, Fragment } from "preact";
     import { tw } from "@twind";
@@ -202,6 +208,7 @@ Islands are started like any other component, but now we can import hooks:
 This component will take in raw Markdown (here called "markup") and output an article.
 
 > islands/Post.tsx
+
     export default function Post({ markup }) {
         const el = useRef<HTMLDivElement>(null)
         console.log('post', markup)
@@ -224,6 +231,7 @@ This component will take in raw Markdown (here called "markup") and output an ar
 Making an individual blog article is like when you created the blog index, but this time we're also importing a Markdown parser. We do this by adding the following line to "import_map.json" like this:
 
 > import_map.json
+
     {
         "imports": {
             "fresh/": "https://deno.land/x/fresh@1.0.1/",
@@ -240,6 +248,7 @@ Making an individual blog article is like when you created the blog index, but t
 To be able to view the content of the Markdown article from your new Post island, we need to alter the "/routes/[name].tsx". Initialize the file we did before:
 
 > routes/[name].tsx
+
     /** @jsx h */ 
     import { h, Fragment } from "preact";
     import { Handlers, PageProps } from "$fresh/server.ts";
@@ -249,6 +258,7 @@ To be able to view the content of the Markdown article from your new Post island
 Next, we're going to add another handler, but instead of pulling metadata from our "/content" folder, we'll be extracting the Markdown content into our component in the `markup` property. You can choose to make another type interface for the content, but since I'm not looping over anything, it's trival to remember that the markup content is stored in `props.data.markup`.
 
 > routes/[name].tsx
+
     export const handler: Handlers = {
     async GET(req, ctx) {
         const url = new URL(req.url).pathname.split('/')
@@ -267,6 +277,7 @@ Next, we're going to add another handler, but instead of pulling metadata from o
 Finally, let's render the post in this component.
 
 > routes/[name].tsx
+
     export default ({ data }) => {
         return (
             <Fragment>
@@ -287,6 +298,7 @@ First, we need to alter our "import_map.json" to affix our "fresh/server.ts" imp
 Next, let's change the "deno.json". Right now, the `start` command runs the development environment. Replace `start` with `start:dev` as the command that starts your development environment. Add a new `start` command, so your "deno.json" looks like this:
 
 > deno.json
+
     {
         "tasks": {
             "start:dev": "deno run -A --watch=static/,routes/ dev.ts",
