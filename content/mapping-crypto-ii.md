@@ -16,7 +16,7 @@ Also, I gave up on using Rust for the initial build. If this gains traction and 
 
 ## Next Steps
 
-### Making the UI Better
+### Making the UI better
 
 It's nice to use d3, but under the hood, everything is spaghetti-code and weird transpilation of vanilla JS > Node.js > Typescript > Deno, so I need to make it a little more coherent.
 
@@ -28,6 +28,6 @@ Best case scenario, we constantly update a back-end database when a block is fin
 
 I may have said "web-socket" earlier, but I'm essentially using it like a REST-ful API service, where I just ask the alchemy endpoint for data on page load. Next, I want a system that subscribes to real-time additions to the block, and then animate the svg as it populates. Pie-in-the-sky stuff here.
 
-##
+## To bigger and better maps
 
 I can't wait to bring this to next semester's De-Fi and Web3 class.
