@@ -72,19 +72,6 @@ export default ({ data, url }: PageProps) => {
 
             <div class={tw`grid grid-cols-1 md:grid-cols-2 md:ap-2`}>
                 <div class={tw`container`}>
-                    <h1 class={tw`visible text-transparent text-4xl py-1 bg-clip-text bg-gradient-to-br dark:from-green-400 dark:via-lime-200 dark:to-yellow-600 from-yellow-600 via-lime-200 to-green-400 mb-4`}>Thoughts</h1>
-                    {
-                        data.blogArticles.map((e: PostModel) => (
-                            <div class={tw`my-3`}>
-                                <a href={`/${e.slug.split('.')[0]}`}>
-                                    <h1 class={tw`text-2xl text-gray-700 dark:text-green-200`}>{e.title.slice(2, e.title.length)}</h1>
-                                    <p class={tw`text-lg text-gray-500 dark:text-green-400`}>{e.date}</p>
-                                </a>
-                            </div>
-                        ))
-                    }
-                </div>
-                <div class={tw`container`}>
                     <h1 class={tw`visible text-transparent text-4xl py-1 bg-clip-text bg-gradient-to-br dark:from-green-400 dark:via-lime-200 dark:to-yellow-600 from-yellow-600 via-lime-200 to-green-400 mb-4`}>Find Me</h1>
                     <div class={tw`my-3`}>
                         <a class={tw`my-3`} href={`https://www.linkedin.com/in/kojinglick`} target="_blank" rel="noopener noreferrer">
@@ -116,6 +103,19 @@ export default ({ data, url }: PageProps) => {
                             </div>
                         </a>
                     </div>
+                </div>
+                <div class={tw`container`}>
+                    <h1 class={tw`visible text-transparent text-4xl py-1 bg-clip-text bg-gradient-to-br dark:from-green-400 dark:via-lime-200 dark:to-yellow-600 from-yellow-600 via-lime-200 to-green-400 mb-4`}>Thoughts</h1>
+                    {
+                        data.blogArticles.map((e: PostModel) => (
+                            <div class={tw`my-3`}>
+                                <a href={`/${e.slug.split('.')[0]}`}>
+                                    <h1 class={tw`text-2xl text-gray-700 dark:text-green-200`}>{e.title.slice(2, e.title.length)}</h1>
+                                    <p class={tw`text-lg text-gray-500 dark:text-green-400`}>{e.date}</p>
+                                </a>
+                            </div>
+                        ))
+                    }
                 </div>
             </div>
 
