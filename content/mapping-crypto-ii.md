@@ -6,7 +6,13 @@
 
 Good news, everyone! (Futurama, anyone?) <a href="https://opencryptomap.deno.dev/" target="_blank" rel="noopener noreferrer">Crypto-Map: Ethereum</a> is now live!
 
-![Website shows a lattice of interactions on the latest Ethereum block](/img/crypto_map_v2.png)
+<iframe id="opencryptomapframe"
+    class="dark:text-green-400"
+    title="Website shows a lattice of interactions on the latest Ethereum blockWebsite shows a lattice of interactions on the latest Ethereum block"
+    width="100%"
+    height="500px"
+    src="https://opencryptomap.deno.dev/">
+</iframe>
 
 Initial features include: ability to hover over a node and see the wallet address, and hover over an edge and see the amount sent. You can click and drag the network apart, and it's kind of fun!
 

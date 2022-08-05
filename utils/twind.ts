@@ -13,9 +13,9 @@ export const config: Configuration = {
         'neutral': "#9DB4C0"
       },
       typography:{
-        green: {
+        DEFAULT: {
           css: {
-            '--tw-prose-a': 'text-green-400'
+            // '--tw-prose-a': 'text-green-400'
           },
         },
       },
