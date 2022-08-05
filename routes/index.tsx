@@ -104,7 +104,7 @@ export default ({ data, url }: PageProps) => {
                         </a>
                     </div>
                 </div>
-                <div class={tw`container`}>
+                <div class={tw`container my-4`}>
                     <h1 class={tw`visible text-transparent text-4xl py-1 bg-clip-text bg-gradient-to-br dark:from-green-400 dark:via-lime-200 dark:to-yellow-600 from-yellow-600 via-lime-200 to-green-400 mb-4`}>Thoughts</h1>
                     {
                         data.blogArticles.map((e: PostModel) => (
