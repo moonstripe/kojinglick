@@ -71,7 +71,7 @@ export default ({ data, url }: PageProps) => {
             </p>
 
             <div class={tw`grid grid-cols-1 md:grid-cols-2 md:ap-2`}>
-                <div class={tw`container`}>
+                <div class={tw`container my-4`}>
                     <h1 class={tw`visible text-transparent text-4xl py-1 bg-clip-text bg-gradient-to-br dark:from-green-400 dark:via-lime-200 dark:to-yellow-600 from-yellow-600 via-lime-200 to-green-400 mb-4`}>Find Me</h1>
                     <div class={tw`my-3`}>
                         <a class={tw`my-3`} href={`https://www.linkedin.com/in/kojinglick`} target="_blank" rel="noopener noreferrer">
