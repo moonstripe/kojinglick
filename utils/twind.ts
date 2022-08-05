@@ -7,6 +7,7 @@ export const config: Configuration = {
   theme: {
     fontFamily: {
       sans: "Inter",
+      mono: "Inconsolata"
     },
     extend: {
       colors: {
