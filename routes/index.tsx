@@ -118,7 +118,6 @@ export default ({ data, url }: PageProps) => {
                     }
                 </div>
             </div>
-
         </Layout>
     );
 }
