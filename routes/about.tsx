@@ -12,6 +12,7 @@ export default (props: PageProps) => {
         description: "Digital explorer, life-long student, and web developer.",
         type: "website"
     }
+
     return (
         <Layout meta={meta}>
             <NavWrappedPage slug={props.url.pathname} />
@@ -28,7 +29,7 @@ export default (props: PageProps) => {
 
                 <li class={tw`text-gray-600 dark:text-green-400 mb-2 text-xl`}>I am certified in <a href='https://www.parchment.com/u/award/d94292951a664e9746f8dbf22a58d844' target="_blank" class={tw`text-black dark:text-neutral`}>Full-Stack Web Development</a> from <a href='https://extension.berkeley.edu/public/category/courseCategoryCertificateProfile.do?method=load&certificateId=32408422' target="_blank" class={tw`text-black dark:text-neutral`}>UC Berkeley</a>.</li>
                 
-                <li class={tw`text-gray-600 dark:text-green-400 text-xl`}>I have undergraduate degrees in  <a href='https://mediastudies.ugis.berkeley.edu/' target="_blank" class={tw`text-black dark:text-neutral`}>Media Studies</a> and <a href='https://polisci.berkeley.edu/' target="_blank" class={tw`text-black dark:text-neutral`}>Political Science</a> from <a href='https://www.berkeley.edu/' target="_blank" class={tw`text-black dark:text-neutral`}>UC Berkeley</a>.</li>
+                <li class={tw`text-gray-600 dark:text-green-400 text-xl`}>I have bachelor's degrees in <a href='https://mediastudies.ugis.berkeley.edu/' target="_blank" class={tw`text-black dark:text-neutral`}>Media Studies</a> and <a href='https://polisci.berkeley.edu/' target="_blank" class={tw`text-black dark:text-neutral`}>Political Science</a> from <a href='https://www.berkeley.edu/' target="_blank" class={tw`text-black dark:text-neutral`}>UC Berkeley</a>.</li>
             </ul>
 
             <h1 class={tw`text-xl dark:text-green-200 text-4xl`}>Works</h1>
