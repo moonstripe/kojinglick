@@ -3,7 +3,7 @@ import { h } from "preact"
 import { tw } from "twind"
 import { PageProps } from "fresh/server.ts"
 import Layout from '../../components/Layout.tsx'
-import KaiCubeProduct from '../../islands/KaiCubeProduct.tsx'
+import _CubeProduct from '../../islands/_CubeProduct.tsx'
 import { Meta } from '../../utils/types/index.ts'
 
 export default ({ url }: PageProps) => {
@@ -16,7 +16,7 @@ export default ({ url }: PageProps) => {
     }
     return (
         <Layout meta={meta}>
-            <KaiCubeProduct pathname={url.pathname}/>
+            <_CubeProduct pathname={url.pathname}/>
         </Layout>
     )
 }

@@ -9,11 +9,11 @@ import { STLLoader } from "loader"
 import { render } from "https://deno.land/x/fresh@1.0.1/src/server/render.tsx"
 import { resolve } from "https://deno.land/std@0.128.0/path/win32.ts"
 
-interface KaiCubeProps {
+interface _CubeProps {
     pathname: string
 }
 
-export default ({ pathname }: KaiCubeProps) => {
+export default ({ pathname }: _CubeProps) => {
     const [section, setSection] = useState<number>(0)
     const [scroll, setScroll] = useState<number>(0)
     const [environment, setEnvironment] = useState<Record<string, any> | undefined>();
@@ -90,7 +90,7 @@ export default ({ pathname }: KaiCubeProps) => {
 
             const loadSectionOne = async () => await new Promise((resolve, reject) => {
                 loader.load(
-                    '/prod/kaicube/sections/section1v2.stl',
+                    '/prod/_cube/sections/section1v2.stl',
                     (geometry) => {
                         geometry.center();
                         const material = new THREE.MeshNormalMaterial();
@@ -115,7 +115,7 @@ export default ({ pathname }: KaiCubeProps) => {
 
             const loadSectionTwoA = async () => await new Promise((resolve, reject) => {
                 loader.load(
-                    '/prod/kaicube/sections/section2a.stl',
+                    '/prod/_cube/sections/section2a.stl',
                     (geometry) => {
                         geometry.center();
                         const material = new THREE.MeshNormalMaterial();
@@ -140,7 +140,7 @@ export default ({ pathname }: KaiCubeProps) => {
 
             const loadSectionTwoB = async () => await new Promise((resolve, reject) => {
                 loader.load(
-                    '/prod/kaicube/sections/section2b.stl',
+                    '/prod/_cube/sections/section2b.stl',
                     (geometry) => {
                         geometry.center();
                         const material = new THREE.MeshNormalMaterial();
@@ -165,7 +165,7 @@ export default ({ pathname }: KaiCubeProps) => {
 
             const loadSectionThree = async () => await new Promise((resolve, reject) => {
                 loader.load(
-                    '/prod/kaicube/sections/section3.stl',
+                    '/prod/_cube/sections/section3.stl',
                     (geometry) => {
                         geometry.center();
                         const material = new THREE.MeshNormalMaterial();
@@ -190,7 +190,7 @@ export default ({ pathname }: KaiCubeProps) => {
 
             const loadSectionFourA = async () => await new Promise((resolve, reject) => {
                 loader.load(
-                    '/prod/kaicube/sections/section4av2.stl',
+                    '/prod/_cube/sections/section4av2.stl',
                     (geometry) => {
                         geometry.center();
                         const material = new THREE.MeshNormalMaterial();
@@ -215,7 +215,7 @@ export default ({ pathname }: KaiCubeProps) => {
 
             const loadSectionFourB = async () => await new Promise((resolve, reject) => {
                 loader.load(
-                    '/prod/kaicube/sections/section4bv2.stl',
+                    '/prod/_cube/sections/section4bv2.stl',
                     (geometry) => {
                         geometry.center();
                         const material = new THREE.MeshNormalMaterial();
