@@ -12,7 +12,7 @@ interface _CubeProps {
 }
 
 export default ({ pathname }: _CubeProps) => {
-    const [mobileTouchY, setMobileTouchY] = useState<number | undefined>();
+    const [mobileTouchX, setMobileTouchX] = useState<number | undefined>();
     const [section, setSection] = useState<number>(0)
     const [deviceType, setDeviceType] = useState<string | undefined>()
     const [scroll, setScroll] = useState<number>(0)
@@ -70,21 +70,33 @@ export default ({ pathname }: _CubeProps) => {
         }, [])
 
         useLayoutEffect(() => {
+            const timer = setInterval(() => {
+                console.log('clearing')
+                setMobileTouchX(undefined)
+            }, 500)
+
+            return () => clearInterval(timer)
+        }, [])
+
+
+        useLayoutEffect(() => {
             document.querySelector("body")?.setAttribute('style', 'overflow-y: hidden; position: fixed; background-color: white; overscroll-behavior: contain;')
             document.addEventListener("mousewheel", handleScroll)
 
             document.addEventListener("touchmove", (e) => {
-                if (mobileTouchY && e.touches[0].clientY > mobileTouchY) {
-                    setScroll(scroll => scroll > 2000 ? 2000 : scroll < 0 ? 0 : scroll + 10)
+                if (mobileTouchX) {
+                    if (e.touches[0].clientX < mobileTouchX) {
+                        setScroll(scroll => scroll > 2000 ? 2000 : scroll < 0 ? 0 : scroll + 2)
+                    }
+
+                    if (e.touches[0].clientX > mobileTouchX) {
+                        setScroll(scroll => scroll > 2000 ? 2000 : scroll < 0 ? 0 : scroll - 2)
+                    }
                 }
 
-                if (mobileTouchY && e.touches[0].clientY < mobileTouchY) {
-                    setScroll(scroll => scroll > 2000 ? 2000 : scroll < 0 ? 0 : scroll - 10)
-                }
-                
-                setMobileTouchY(e.touches[0].clientY);
+                setMobileTouchX(e.touches[0].clientX);
             })
-        }, [mobileTouchY])
+        }, [mobileTouchX])
 
         useLayoutEffect(() => {
             if (scroll < 500) {
@@ -468,7 +480,7 @@ export default ({ pathname }: _CubeProps) => {
                         environment.models[3].position.lerp(threePosition, 1);
                         environment.models[4].position.lerp(fourAPosition, 1);
                         environment.models[5].position.lerp(fourBPosition, 1);
-                        
+
                         environment.models[1].visible = false;
                         environment.models[2].visible = false;
                         environment.models[3].visible = false;
@@ -506,9 +518,34 @@ export default ({ pathname }: _CubeProps) => {
                 <div class={tw`col-span-1 h-full md:h-full relative`}>
                     <div ref={ref} class={tw`h-full w-full md:h-full`}></div>
                 </div>
-                <div class={tw`col-span-1 flex flex-col h-1/2 md:h-full w-3/4 mx-auto md:w-auto md:mr-0 md: ml-4`}>
+                <div class={tw`col-span-1 flex flex-col h-1/2 md:h-full w-3/4 mx-auto md:w-auto md:mr-0 md: ml-4`} id="scroll">
                     <div class={tw`h-5/12 my-auto`}>
-                        <div class={tw`mt-0 mb-auto`}>
+                    <div class={tw`mt-0 mb-auto flex flex-row py-4`}>
+                    {
+                        deviceType === "Mobile" ? ['', '', '', ''].map((_, i) => i === section ? (
+                            <svg class={i === 0 ? tw`ml-0 mr-1` : i === 3 ? tw`mr-0 ml-1` : tw`mx-1`} onClick={() => setSection(i)} width="10px" viewBox="0 0 24 24" stroke="url(#grad1)" fill="url(#grad1)">
+                                <defs>
+                                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" style="stop-color:#2596be;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#d22cae;stop-opacity:1" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2z"></path>
+                            </svg>
+                        ) : (
+                            <svg class={i === 0 ? tw`ml-0 mr-1` : i === 3 ? tw`mr-0 ml-1` : tw`mx-1`} onClick={() => setSection(i)} viewBox="0 0 24 24" width="10px" stroke="url(#grad1)" fill="url(#grad1)">
+                                <defs>
+                                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" style="stop-color:#b794f4;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#f56565;stop-opacity:1" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"></path>
+                            </svg>
+                        )) : null
+                    }
+                    </div>
+                        <div class={tw`my-auto`}>
                             <h1 class={tw`py-1 text-transparent text-4xl bg-clip-text bg-gradient-to-br dark:from-bump-start dark:via-lime-200 dark:to-bump-end from-bump-end via-lime-200 to-bump-start`}>_Cube</h1>
                             <p class={tw`font-light`}>The Essential Retro Console</p>
                         </div>
@@ -555,7 +592,7 @@ export default ({ pathname }: _CubeProps) => {
                         <div class={tw`mt-auto mb-0 flex flex-row py-4`}>
 
                             {
-                                ['', '', '', ''].map((_, i) => i === section ? (
+                                deviceType === "Desktop" ? ['', '', '', ''].map((_, i) => i === section ? (
                                     <svg class={i === 0 ? tw`ml-0 mr-1` : i === 3 ? tw`mr-0 ml-1` : tw`mx-1`} onClick={() => setSection(i)} width="10px" viewBox="0 0 24 24" stroke="url(#grad1)" fill="url(#grad1)">
                                         <defs>
                                             <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -575,7 +612,7 @@ export default ({ pathname }: _CubeProps) => {
                                         </defs>
                                         <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"></path>
                                     </svg>
-                                ))
+                                )) : null
                             }
                         </div>
                     </div>
