@@ -1,6 +1,6 @@
 # The Next Day
 
-11:57 AM, July 28th, 2022
+1659034652
 
 I've always had a little trouble communicating effectively with myself. The difficulty often comes from the sense that emotions exist behind a cloudy wall, and the best I can do is feel the shape of what it actually is. I may never understand what a pure version of my own anger or sadness might actually be. 
 

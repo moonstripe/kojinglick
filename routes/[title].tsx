@@ -28,10 +28,12 @@ export const handler: Handlers = {
                     const file = await Deno.readTextFile(path);
                     const titleString = file.split("\n")[0];
                     const dateString = file.split("\n")[2]
+
+                    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     
                     blogArticles.push({
                         slug: item.name,
-                        date: dateString,
+                        date: new Date(dateString * 1000).toLocaleDateString('en-us', options),
                         title: titleString
                     });
                 }
@@ -40,8 +42,16 @@ export const handler: Handlers = {
             // Build Content
     
             const decoder = new TextDecoder("utf-8");
-            const markdown = decoder.decode(await Deno.readFile(`content/${file}.md`));
-            const markup = Marked.parse(markdown)
+
+            const raw = await Deno.readTextFile(`content/${file}.md`)
+
+            const dateString = raw.split(`\n`)[2]
+
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+
+            const forSite = raw.replace(dateString, new Date(dateString * 1000).toLocaleDateString('en-us', options))
+
+            const markup = Marked.parse(forSite);
     
             // Build Meta
     

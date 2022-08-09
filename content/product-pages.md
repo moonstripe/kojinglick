@@ -1,6 +1,6 @@
 # A Study in Threejs, Fresh and Product Pages
 
-8:49 PM, August 8rd, 2022
+1659930572
 
 ## But why, though?
 
