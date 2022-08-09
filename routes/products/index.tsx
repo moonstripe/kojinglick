@@ -21,7 +21,7 @@ export default ({ url }: PageProps) => {
                 <div class={tw`flex flex-row bg-bg-light py-4 px-4 dark:bg-bg-dark`}>
                     <img class={tw`rounded-lg w-3/12`} src="/prod/_cube/_cube.jpg" alt="Play some classic Pokemon games with the KaiCube" />
                     <div class={tw`flex flex-col ml-4`}>
-                        <a href="products/_cube">
+                        <a href="products/cube">
                             <div class={tw`flex flex-row my-2`}>
                                 <h3 class={tw`align-middle text-2xl text-gray-600 dark:text-green-500 font-light`}>Get your retro game face on with</h3>
                                 <p class={tw`mx-1`}></p>
