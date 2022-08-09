@@ -17,8 +17,6 @@ export default ({ url }: PageProps) => {
         <Layout meta={meta}>
             <NavWrappedPage slug={url.pathname} />
             <h1 class={tw`py-2 text-transparent text-4xl bg-clip-text bg-gradient-to-br dark:from-green-400 dark:via-lime-200 dark:to-yellow-600 from-yellow-600 via-lime-200 to-green-400 mb-4`}>My potions are too strong for you, traveler.</h1>
-
-            {/* Showcase */}
             <div class={tw`mt-8 my-2 border-transparent rounded border-solid border-2 bg-clip-border bg-gradient-to-br dark:from-green-400 dark:via-lime-200 dark:to-yellow-600 from-yellow-600 via-lime-200 to-green-400`}>
                 <div class={tw`flex flex-row bg-bg-light py-4 px-4 dark:bg-bg-dark`}>
                     <img class={tw`rounded-lg w-3/12`} src="/prod/_cube/_cube.jpg" alt="Play some classic Pokemon games with the KaiCube" />
