@@ -16,6 +16,7 @@ Ok, here you go.
     height="500px"
     src="https://kojinglick.com/products/cube">
 </iframe>
+<a href="https://kojinglick.com/products/cube" target="_blank" rel="noopener noreferrer">See it for your self!</a>
 
 ## Elaborate.
 
