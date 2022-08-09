@@ -21,13 +21,13 @@ export default ({ url }: PageProps) => {
             {/* Showcase */}
             <div class={tw`mt-8 my-2 border-transparent rounded border-solid border-2 bg-clip-border bg-gradient-to-br dark:from-green-400 dark:via-lime-200 dark:to-yellow-600 from-yellow-600 via-lime-200 to-green-400`}>
                 <div class={tw`flex flex-row bg-bg-light py-4 px-4 dark:bg-bg-dark`}>
-                    <img class={tw`rounded-lg w-3/12`} src="/prod/kaicube/kaicube.jpg" alt="Play some classic Pokemon games with the KaiCube" />
+                    <img class={tw`rounded-lg w-3/12`} src="/prod/_cube/_cube.jpg" alt="Play some classic Pokemon games with the KaiCube" />
                     <div class={tw`flex flex-col ml-4`}>
-                        <a href="products/kaicube">
+                        <a href="products/_cube">
                             <div class={tw`flex flex-row my-2`}>
                                 <h3 class={tw`align-middle text-2xl text-gray-600 dark:text-green-500 font-light`}>Get your retro game face on with</h3>
                                 <p class={tw`mx-1`}></p>
-                                <h1 class={tw`text-transparent font-bold text-2xl bg-clip-text bg-gradient-to-br dark:from-green-400 dark:via-lime-200 dark:to-yellow-600 from-yellow-600 via-lime-200 to-green-400`}>KaiCube</h1>
+                                <h1 class={tw`text-transparent font-bold text-2xl bg-clip-text bg-gradient-to-br dark:from-green-400 dark:via-lime-200 dark:to-yellow-600 from-yellow-600 via-lime-200 to-green-400`}>_Cube</h1>
                             </div>
                         </a>
                         <div class={tw`flex flex-row my-2`}>
