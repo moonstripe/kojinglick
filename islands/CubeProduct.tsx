@@ -12,6 +12,7 @@ interface _CubeProps {
 }
 
 export default ({ pathname }: _CubeProps) => {
+    const [mobileTouchY, setMobileTouchY] = useState<number | undefined>();
     const [section, setSection] = useState<number>(0)
     const [deviceType, setDeviceType] = useState<string | undefined>()
     const [scroll, setScroll] = useState<number>(0)
@@ -73,10 +74,17 @@ export default ({ pathname }: _CubeProps) => {
             document.addEventListener("mousewheel", handleScroll)
 
             document.addEventListener("touchmove", (e) => {
-                console.log(e)
-                document.dispatchEvent("mousewheel")
+                if (mobileTouchY && e.touches[0].clientY > mobileTouchY) {
+                    setScroll(scroll => scroll > 2000 ? 2000 : scroll < 0 ? 0 : scroll + 10)
+                }
+
+                if (mobileTouchY && e.touches[0].clientY < mobileTouchY) {
+                    setScroll(scroll => scroll > 2000 ? 2000 : scroll < 0 ? 0 : scroll - 10)
+                }
+                
+                setMobileTouchY(e.touches[0].clientY);
             })
-        }, [])
+        }, [mobileTouchY])
 
         useLayoutEffect(() => {
             if (scroll < 500) {
