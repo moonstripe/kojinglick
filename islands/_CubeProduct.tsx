@@ -6,8 +6,6 @@ import { tw } from "twind"
 import * as THREE from "three"
 import { OrbitControls } from "orbit"
 import { STLLoader } from "loader"
-import { render } from "https://deno.land/x/fresh@1.0.1/src/server/render.tsx"
-import { resolve } from "https://deno.land/std@0.128.0/path/win32.ts"
 
 interface _CubeProps {
     pathname: string
