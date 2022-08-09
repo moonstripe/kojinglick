@@ -43,6 +43,7 @@ export default ({ pathname }: _CubeProps) => {
 
     if (IS_BROWSER) {
         useLayoutEffect(() => {
+            document.querySelector("body")?.setAttribute('style', 'overflow-y: hidden;')
             document.addEventListener("wheel", handleScroll)
         }, [])
 
