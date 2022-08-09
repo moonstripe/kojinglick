@@ -15,7 +15,7 @@ export default (props: PageProps) => {
     return (
         <Layout meta={meta}>
             <NavWrappedPage slug={props.url.pathname} />
-            <h1 class={tw`text-transparent text-8xl bg-clip-text bg-gradient-to-br dark:from-green-400 dark:via-lime-200 dark:to-yellow-600 from-yellow-600 via-lime-200 to-green-400 mb-4`}>Kojin Glick</h1>
+            <h1 class={tw`py-1 text-transparent text-8xl bg-clip-text bg-gradient-to-br dark:from-green-400 dark:via-lime-200 dark:to-yellow-600 from-yellow-600 via-lime-200 to-green-400 mb-4`}>Kojin Glick</h1>
 
             <p class={tw`text-xl text-gray-600 dark:text-green-200 mb-4`}>Digital explorer, life-long student, and web developer</p>
 
