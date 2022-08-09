@@ -416,7 +416,7 @@ export default ({ pathname }: _CubeProps) => {
 
 
     return (
-        <div class={tw`absolute top-0 left-0 w-screen h-screen flex flex-row`}>
+        <div class={tw`absolute top-0 left-0 w-screen h-screen flex flex-row`} style={{overflowY: "hidden"}}>
             <div class={tw`w-full md:w-5/6 mx-auto grid grid-cols-1 md:grid-cols-2 h-2/3 my-auto md:h-full`}>
                 <div class={tw`col-span-1 h-full md:h-full relative`}>
                     <div ref={ref} class={tw`h-full w-full md:h-full absolute bottom-0 left-auto right-auto`}></div>
