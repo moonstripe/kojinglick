@@ -13,9 +13,9 @@ interface _CubeProps {
 
 export default ({ pathname }: _CubeProps) => {
     const [section, setSection] = useState<number>(0)
+    const [deviceType, setDeviceType] = useState<string | undefined>()
     const [scroll, setScroll] = useState<number>(0)
     const [environment, setEnvironment] = useState<Record<string, any> | undefined>();
-    const [renderer, setRenderer] = useState();
     const ref = useRef<HTMLDivElement | undefined>()
 
 
@@ -42,8 +42,40 @@ export default ({ pathname }: _CubeProps) => {
 
     if (IS_BROWSER) {
         useLayoutEffect(() => {
-            document.querySelector("body")?.setAttribute('style', 'overflow-y: hidden; background-color: white; overscroll: contain;')
-            document.addEventListener("wheel", handleScroll)
+            let hasTouchScreen = false;
+            if ("maxTouchPoints" in navigator) {
+                hasTouchScreen = navigator.maxTouchPoints > 0;
+            } else if ("msMaxTouchPoints" in navigator) {
+                hasTouchScreen = navigator.msMaxTouchPoints > 0;
+            } else {
+                const mQ = window.matchMedia("(pointer:coarse)");
+                if (mQ && mQ.media === "(pointer:coarse)") {
+                    hasTouchScreen = !!mQ.matches;
+                } else if ("orientation" in window) {
+                    hasTouchScreen = true; // deprecated, but good fallback
+                } else {
+                    // Only as a last resort, fall back to user agent sniffing
+                    var UA = navigator.userAgent;
+                    hasTouchScreen =
+                        /\b(BlackBerry|webOS|iPhone|IEMobile)\b/i.test(UA) ||
+                        /\b(Android|Windows Phone|iPad|iPod)\b/i.test(UA);
+                }
+            }
+            if (hasTouchScreen) {
+                setDeviceType("Mobile");
+            } else {
+                setDeviceType("Desktop");
+            }
+        }, [])
+
+        useLayoutEffect(() => {
+            document.querySelector("body")?.setAttribute('style', 'overflow-y: hidden; position: fixed; background-color: white; overscroll-behavior: contain;')
+            document.addEventListener("mousewheel", handleScroll)
+
+            document.addEventListener("touchmove", (e) => {
+                console.log(e)
+                document.dispatchEvent("mousewheel")
+            })
         }, [])
 
         useLayoutEffect(() => {
@@ -56,7 +88,7 @@ export default ({ pathname }: _CubeProps) => {
             if (scroll >= 1000 && scroll < 1500) {
                 setSection(2)
             }
-            if (scroll >= 1500 ) {
+            if (scroll >= 1500) {
                 setSection(3)
             }
         }, [scroll])
@@ -64,9 +96,8 @@ export default ({ pathname }: _CubeProps) => {
 
         useLayoutEffect(() => {
 
-
             const WIDTH = ref.current?.offsetWidth;
-            const HEIGHT = ref.current?.offsetHeight;
+            const HEIGHT = deviceType === "Mobile" ? ref.current?.offsetWidth : ref.current?.offsetHeight;
 
             const scene = new THREE.Scene();
             scene.background = new THREE.Color(0xffffff);
@@ -258,7 +289,7 @@ export default ({ pathname }: _CubeProps) => {
             animate();
 
             return () => ref.current.removeChild(renderer.domElement);
-        }, [])
+        }, [deviceType])
 
         useLayoutEffect(() => {
 
@@ -278,16 +309,31 @@ export default ({ pathname }: _CubeProps) => {
                     let fourAPosition = new THREE.Vector3(environment.models[4].position.x, environment.models[4].position.y, 17)
                     let fourBPosition = new THREE.Vector3(environment.models[5].position.x, environment.models[5].position.y, -10.5)
 
+                    // Place Three
+                    let threePosition = new THREE.Vector3(environment.models[3].position.x, environment.models[3].position.y, 19);
+
+                    // Place Twos
+                    let twoAPosition = new THREE.Vector3(environment.models[1].position.x, environment.models[1].position.y, 4);
+                    let twoBPosition = new THREE.Vector3(environment.models[2].position.x, environment.models[2].position.y, -12);
+
+                    environment.models[1].visible = true;
+                    environment.models[2].visible = true;
+                    environment.models[3].visible = true;
                     environment.models[4].visible = true;
                     environment.models[5].visible = true;
 
                     let newA = alpha += delta
 
                     if (newA <= 1) {
-                        // console.log('newA', newA)
+                        environment.models[1].position.lerp(twoAPosition, newA);
+                        environment.models[2].position.lerp(twoBPosition, newA);
+                        environment.models[3].position.lerp(threePosition, newA);
                         environment.models[4].position.lerp(fourAPosition, newA);
                         environment.models[5].position.lerp(fourBPosition, newA);
                     } else {
+                        environment.models[1].position.lerp(twoAPosition, 1);
+                        environment.models[2].position.lerp(twoBPosition, 1);
+                        environment.models[3].position.lerp(threePosition, 1);
                         environment.models[4].position.lerp(fourAPosition, 1);
                         environment.models[5].position.lerp(fourBPosition, 1);
                     }
@@ -301,33 +347,40 @@ export default ({ pathname }: _CubeProps) => {
                     const delta = clock.getDelta()
 
                     // Yeet Fours
-                    let fourAPosition = new THREE.Vector3(environment.models[1].position.x, environment.models[4].position.y, LEAVE_DISTANCE * 4)
-                    let fourBPosition = new THREE.Vector3(environment.models[2].position.x, environment.models[5].position.y, -LEAVE_DISTANCE * 4)
+                    let fourAPosition = new THREE.Vector3(environment.models[1].position.x, environment.models[4].position.y, LEAVE_DISTANCE * 10)
+                    let fourBPosition = new THREE.Vector3(environment.models[2].position.x, environment.models[5].position.y, -LEAVE_DISTANCE * 10)
 
                     // Place Three
                     let threePosition = new THREE.Vector3(environment.models[3].position.x, environment.models[3].position.y, 19)
 
+                    // Place Twos
+                    let twoAPosition = new THREE.Vector3(environment.models[1].position.x, environment.models[1].position.y, 4);
+                    let twoBPosition = new THREE.Vector3(environment.models[2].position.x, environment.models[2].position.y, -12);
+
+                    environment.models[1].visible = true;
+                    environment.models[2].visible = true;
                     environment.models[3].visible = true;
 
                     let newA = alpha += delta
 
                     if (newA <= 1) {
                         // console.log('newA', newA)
+                        environment.models[1].position.lerp(twoAPosition, newA);
+                        environment.models[2].position.lerp(twoBPosition, newA);
                         environment.models[3].position.lerp(threePosition, newA);
+
+                        // yeets
                         environment.models[4].position.lerp(fourAPosition, newA);
                         environment.models[5].position.lerp(fourBPosition, newA);
                     } else {
+                        environment.models[1].position.lerp(twoAPosition, 1);
+                        environment.models[2].position.lerp(twoBPosition, 1);
                         environment.models[3].position.lerp(threePosition, 1);
-                        environment.models[4].position.lerp(fourAPosition, 1);
-                        environment.models[5].position.lerp(fourBPosition, 1);
-                    }
 
-                    if (environment.models[4].position.z > LEAVE_DISTANCE * 2) {
+                        // yeets
                         environment.models[4].visible = false;
                         environment.models[5].visible = false;
                     }
-
-
 
                     environment.renderer.render(environment.scene, environment.camera);
                 }
@@ -341,7 +394,11 @@ export default ({ pathname }: _CubeProps) => {
                     let delta = clock.getDelta()
                     // console.log('start', environment.models[1].position.z )
                     // Yeet Three
-                    let threePosition = new THREE.Vector3(environment.models[3].position.x, environment.models[3].position.y, LEAVE_DISTANCE * 4)
+                    let threePosition = new THREE.Vector3(environment.models[3].position.x, environment.models[3].position.y, LEAVE_DISTANCE * 10)
+
+                    // Yeet Fours
+                    let fourAPosition = new THREE.Vector3(environment.models[1].position.x, environment.models[4].position.y, LEAVE_DISTANCE * 10)
+                    let fourBPosition = new THREE.Vector3(environment.models[2].position.x, environment.models[5].position.y, -LEAVE_DISTANCE * 10)
 
                     // Place Twos
                     let twoAPosition = new THREE.Vector3(environment.models[1].position.x, environment.models[1].position.y, 4);
@@ -352,17 +409,22 @@ export default ({ pathname }: _CubeProps) => {
                     const newA = alpha += delta
 
                     if (newA <= 1) {
-                        // console.log('newA', newA)
-                        environment.models[3].position.lerp(threePosition, newA);
                         environment.models[1].position.lerp(twoAPosition, newA);
                         environment.models[2].position.lerp(twoBPosition, newA);
+
+                        // yeets
+                        environment.models[3].position.lerp(threePosition, newA);
+                        environment.models[4].position.lerp(fourAPosition, newA);
+                        environment.models[5].position.lerp(fourBPosition, newA);
+
                     } else {
-                        environment.models[3].position.lerp(threePosition, 1);
                         environment.models[1].position.lerp(twoAPosition, 1);
                         environment.models[2].position.lerp(twoBPosition, 1);
-                    }
-                    if (environment.models[3].position.z > LEAVE_DISTANCE * 2) {
+
+                        // yeets
                         environment.models[3].visible = false;
+                        environment.models[4].visible = false;
+                        environment.models[5].visible = false;
                     }
 
                     environment.renderer.render(environment.scene, environment.camera);
@@ -372,22 +434,38 @@ export default ({ pathname }: _CubeProps) => {
                     requestAnimationFrame(section3)
                     let delta = clock.getDelta()
                     // Yeet Twos
-                    let twoAPosition = new THREE.Vector3(environment.models[1].position.x, environment.models[1].position.y, LEAVE_DISTANCE * 4)
-                    let twoBPosition = new THREE.Vector3(environment.models[2].position.x, environment.models[2].position.y, -LEAVE_DISTANCE * 4)
+                    let twoAPosition = new THREE.Vector3(environment.models[1].position.x, environment.models[1].position.y, LEAVE_DISTANCE * 10)
+                    let twoBPosition = new THREE.Vector3(environment.models[2].position.x, environment.models[2].position.y, -LEAVE_DISTANCE * 10)
+
+                    // Yeet Three
+                    let threePosition = new THREE.Vector3(environment.models[3].position.x, environment.models[3].position.y, LEAVE_DISTANCE * 10)
+
+                    // Yeet Fours
+                    let fourAPosition = new THREE.Vector3(environment.models[1].position.x, environment.models[4].position.y, LEAVE_DISTANCE * 10)
+                    let fourBPosition = new THREE.Vector3(environment.models[2].position.x, environment.models[5].position.y, -LEAVE_DISTANCE * 10)
 
                     const newA = alpha += delta
                     if (newA <= 1) {
+                        // yeets
                         environment.models[1].position.lerp(twoAPosition, newA);
                         environment.models[2].position.lerp(twoBPosition, newA);
+                        environment.models[3].position.lerp(threePosition, newA);
+                        environment.models[4].position.lerp(fourAPosition, newA);
+                        environment.models[5].position.lerp(fourBPosition, newA);
 
                     } else {
+                        // yeets      
                         environment.models[1].position.lerp(twoAPosition, 1);
                         environment.models[2].position.lerp(twoBPosition, 1);
-                    }
-
-                    if (environment.models[1].position.z > LEAVE_DISTANCE * 2) {
+                        environment.models[3].position.lerp(threePosition, 1);
+                        environment.models[4].position.lerp(fourAPosition, 1);
+                        environment.models[5].position.lerp(fourBPosition, 1);
+                        
                         environment.models[1].visible = false;
                         environment.models[2].visible = false;
+                        environment.models[3].visible = false;
+                        environment.models[4].visible = false;
+                        environment.models[5].visible = false;
                     }
 
                     environment.renderer.render(environment.scene, environment.camera);
@@ -416,15 +494,15 @@ export default ({ pathname }: _CubeProps) => {
 
     return (
         <div class={tw`absolute top-0 left-0 w-screen h-screen flex flex-row`} style={{ overflowY: "hidden" }}>
-            <div class={tw`w-full md:w-5/6 mx-auto grid grid-cols-1 md:grid-cols-2 h-2/3 my-auto md:h-full`}>
+            <div class={tw`w-full md:w-5/6 mx-auto grid grid-cols-1 md:grid-cols-2 h-2/3 my-0 md:my-auto md:h-full`}>
                 <div class={tw`col-span-1 h-full md:h-full relative`}>
-                    <div ref={ref} class={tw`h-full w-full md:h-full absolute bottom-0 left-auto right-auto`}></div>
+                    <div ref={ref} class={tw`h-full w-full md:h-full`}></div>
                 </div>
-                <div class={tw`col-span-1 flex flex-col h-1/2 md:h-full w-3/4 mx-auto md:w-auto md:mx-0`}>
+                <div class={tw`col-span-1 flex flex-col h-1/2 md:h-full w-3/4 mx-auto md:w-auto md:mr-0 md: ml-4`}>
                     <div class={tw`h-5/12 my-auto`}>
                         <div class={tw`mt-0 mb-auto`}>
                             <h1 class={tw`py-1 text-transparent text-4xl bg-clip-text bg-gradient-to-br dark:from-bump-start dark:via-lime-200 dark:to-bump-end from-bump-end via-lime-200 to-bump-start`}>_Cube</h1>
-                            <p>The Essential Retro Console</p>
+                            <p class={tw`font-light`}>The Essential Retro Console</p>
                         </div>
                         <div class={tw`my-auto flex flex-row py-4`}>
                             <div class={tw`w-fit border-transparent rounded border-solid border-2 bg-clip-border bg-gradient-to-br dark:from-bump-start dark:via-lime-200 dark:to-bump-end from-bump-end via-lime-200 to-bump-start`}>
@@ -432,12 +510,19 @@ export default ({ pathname }: _CubeProps) => {
                             </div>
                             <button class={tw`w-fit py-2 ml-4 disabled:text-gray-600 disabled:opacity-75 pointer-events-none focus:outline-none`} disabled>$69.95</button>
                         </div>
-                        <div class={tw`mt-auto mb-0 h-1/3`}>
+                        <div class={tw`my-auto py-4 w-full md:w-1/2`}>
+                            {
+                                section === 0 ? (
+                                    <Fragment>
+                                        <p class={tw`py-1 text-xl`}><p class={tw`inline text-transparent bg-clip-text bg-gradient-to-br dark:from-bump-start dark:via-lime-200 dark:to-bump-end from-bump-end via-lime-200 to-bump-start`}>Get a _Cube</p> as a stylish gift, or deck out your game lair.</p>
+                                    </Fragment>
+
+                                ) : null
+                            }
                             {
                                 section === 1 ? (
                                     <Fragment>
-                                        <p class={tw`mb-2`}><p class={tw`inline text-transparent bg-clip-text bg-gradient-to-br dark:from-bump-start dark:via-lime-200 dark:to-bump-end from-bump-end via-lime-200 to-bump-start`}>Customize everything</p> from the LEDs, transparent acrylics, to the front-panel.</p>
-                                        <p class={tw`mb-2`}><p class={tw`inline text-transparent bg-clip-text bg-gradient-to-br dark:from-bump-start dark:via-lime-200 dark:to-bump-end from-bump-end via-lime-200 to-bump-start`}>Get a _Cube</p> as a stylish gift, or deck out your game lair.</p>
+                                        <p class={tw`py-1 text-xl`}><p class={tw`inline text-transparent bg-clip-text bg-gradient-to-br dark:from-bump-start dark:via-lime-200 dark:to-bump-end from-bump-end via-lime-200 to-bump-start`}>Customize</p> the LEDs, transparent acrylics, or the front-panel.</p>
                                     </Fragment>
 
                                 ) : null
@@ -445,9 +530,7 @@ export default ({ pathname }: _CubeProps) => {
                             {
                                 section === 2 ? (
                                     <Fragment>
-                                        <p class={tw`mb-2`}><p class={tw`inline text-transparent bg-clip-text bg-gradient-to-br dark:from-bump-start dark:via-lime-200 dark:to-bump-end from-bump-end via-lime-200 to-bump-start`}>Maximize fun, minimize clutter</p>. No more wires, no more console management.</p>
-
-                                        <p>Built from the ground up to <p class={tw`inline text-transparent bg-clip-text bg-gradient-to-br dark:from-bump-start dark:via-lime-200 dark:to-bump-end from-bump-end via-lime-200 to-bump-start`}>look good in your living room</p>.</p>
+                                        <p class={tw`py-1 text-xl`}>Built from the ground up to <p class={tw`inline text-transparent bg-clip-text bg-gradient-to-br dark:from-bump-start dark:via-lime-200 dark:to-bump-end from-bump-end via-lime-200 to-bump-start`}>look good in your living room</p>.</p>
                                     </Fragment>
 
 
@@ -456,11 +539,35 @@ export default ({ pathname }: _CubeProps) => {
                             {
                                 section >= 3 ? (
                                     <Fragment>
-                                        <p class={tw`mb-2 py-1`}>Play thousands of games across more than <p class={tw`inline text-transparent bg-clip-text bg-gradient-to-br dark:from-bump-start dark:via-lime-200 dark:to-bump-end from-bump-end via-lime-200 to-bump-start`}>20 consoles</p>.</p>
-
-                                        <p>Retro games, <p class={tw`inline text-transparent bg-clip-text bg-gradient-to-br dark:from-bump-start dark:via-lime-200 dark:to-bump-end from-bump-end via-lime-200 to-bump-start`}>AAA-performance</p>.</p>
+                                        <p class={tw`py-1 text-xl`}>Play thousands of games across more than <p class={tw`inline text-transparent bg-clip-text bg-gradient-to-br dark:from-bump-start dark:via-lime-200 dark:to-bump-end from-bump-end via-lime-200 to-bump-start`}>20 consoles</p>.</p>
                                     </Fragment>
                                 ) : null
+                            }
+                        </div>
+                        <div class={tw`mt-auto mb-0 flex flex-row py-4`}>
+
+                            {
+                                ['', '', '', ''].map((_, i) => i === section ? (
+                                    <svg class={i === 0 ? tw`ml-0 mr-1` : i === 3 ? tw`mr-0 ml-1` : tw`mx-1`} onClick={() => setSection(i)} width="10px" viewBox="0 0 24 24" stroke="url(#grad1)" fill="url(#grad1)">
+                                        <defs>
+                                            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                                                <stop offset="0%" style="stop-color:#2596be;stop-opacity:1" />
+                                                <stop offset="100%" style="stop-color:#d22cae;stop-opacity:1" />
+                                            </linearGradient>
+                                        </defs>
+                                        <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2z"></path>
+                                    </svg>
+                                ) : (
+                                    <svg class={i === 0 ? tw`ml-0 mr-1` : i === 3 ? tw`mr-0 ml-1` : tw`mx-1`} onClick={() => setSection(i)} viewBox="0 0 24 24" width="10px" stroke="url(#grad1)" fill="url(#grad1)">
+                                        <defs>
+                                            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                                                <stop offset="0%" style="stop-color:#b794f4;stop-opacity:1" />
+                                                <stop offset="100%" style="stop-color:#f56565;stop-opacity:1" />
+                                            </linearGradient>
+                                        </defs>
+                                        <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"></path>
+                                    </svg>
+                                ))
                             }
                         </div>
                     </div>

@@ -7,12 +7,13 @@ import CubeProduct from '../../islands/CubeProduct.tsx'
 import { Meta } from '../../utils/types/index.ts'
 
 export default ({ url }: PageProps) => {
-    console.log('hello', url.pathname)
+    // console.log('hello', url.pathname)
 
     const meta: Meta = {
         title: "Cube by Kojin",
         description: "A retro gaming powerhouse in a tiny frame.",
-        type: "website"
+        type: "website",
+        url: `www.kojinglick.com${url.pathname}`
     }
     return (
         <Layout meta={meta}>
