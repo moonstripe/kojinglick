@@ -9,7 +9,6 @@ export interface Meta {
     customMeta?: any
 }
 
-
 export interface LayoutProps {
     children: ComponentChildren;
     meta: Meta;

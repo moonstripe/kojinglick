@@ -4,9 +4,10 @@ import { tw } from "@twind";
 import { PageProps } from "fresh/server.ts";
 import NavWrappedPage from '../islands/NavWrappedPage.tsx'
 import Layout from '../components/Layout.tsx'
+import Meta from '../utils/types/index.ts'
 
 export default (props: PageProps) => {
-    const meta = {
+    const meta: Meta = {
         title: "About Kojin",
         description: "Digital explorer, life-long student, and web developer.",
         type: "website"

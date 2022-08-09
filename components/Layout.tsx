@@ -20,7 +20,7 @@ const SEO = ({ customMeta }: Meta) => {
             <title>{meta.title}</title>
 
             {/* Robots.txt */}
-            <meta name="robots" content="index, follow"/>
+            <meta name="robots" content="index, follow" />
 
             {/* Open Graph */}
 
@@ -56,15 +56,17 @@ const SEO = ({ customMeta }: Meta) => {
 
             <link rel="canonical" href="https://www.kojinglick.com/" />
 
+            <link rel="stylesheet" href="/style.css"/>
+
         </Head>
     )
 }
 
 export default ({ children, ...customMeta }: LayoutProps) => {
     return (
-        <div class={tw`mx-auto mb-4 max-w-screen-md w-8/12`}>
-            <SEO customMeta={customMeta}/>
+        <main class={tw`mx-auto mb-4 max-w-screen-md w-8/12 overscroll-contain`}>
+            <SEO customMeta={customMeta} />
             {children}
-        </div>
+        </main>
     )
 }

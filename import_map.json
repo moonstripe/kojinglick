@@ -3,6 +3,7 @@
     "fresh/": "https://deno.land/x/fresh@1.0.1/",
     "preact": "https://esm.sh/preact@10.8.2",
     "preact/hooks": "https://esm.sh/preact@10.8.2/hooks",
+    "preact/compat": "https://esm.sh/preact@10.8.2/compat",
     "preact-render-to-string": "https://esm.sh/preact-render-to-string@5.2.0?deps=preact@10.8.2",
     "@twind": "./utils/twind.ts",
     "twind": "https://esm.sh/twind@0.16.17",
@@ -10,6 +11,11 @@
     "@twind/line-clamp": "https://esm.sh/@twind/line-clamp@0.1.1",
     "twind/": "https://esm.sh/twind@0.16.17/",
     "markdown": "https://deno.land/x/markdown@v2.0.0/mod.ts",
-    "hljs": "https://unpkg.com/@highlightjs/cdn-assets@11.6.0/es/highlight.min.js"
+    "hljs": "https://unpkg.com/@highlightjs/cdn-assets@11.6.0/es/highlight.min.js",
+    "three": "https://esm.sh/three@0.143.0",
+    "orbit": "https://esm.sh/three@0.143.0/examples/jsm/controls/OrbitControls",
+    "loader": "https://esm.sh/three@0.143.0/examples/jsm/loaders/STLLoader",
+    "@react-three/drei": "https://esm.sh/@react-three/drei@v9.19.7",
+    "@react-three/fiber": "https://esm.sh/@react-three/fiber@8.3.0"
   }
 }

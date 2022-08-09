@@ -11,7 +11,7 @@ Good news, everyone! (Futurama, anyone?) <a href="https://opencryptomap.deno.dev
     title="Website shows a lattice of interactions on the latest Ethereum blockWebsite shows a lattice of interactions on the latest Ethereum block"
     width="100%"
     height="500px"
-    src="https://opencryptomap.deno.dev/15292710">
+    src="https://opencryptomap.deno.dev/15292713">
 </iframe>
 
 Initial features include: ability to hover over a node and see the wallet address, and hover over an edge and see the amount sent. You can click and drag the network apart, and it's kind of fun!
