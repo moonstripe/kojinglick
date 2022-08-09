@@ -15,7 +15,7 @@
     "three": "https://esm.sh/three@0.143.0",
     "orbit": "https://esm.sh/three@0.143.0/examples/jsm/controls/OrbitControls",
     "loader": "https://esm.sh/three@0.143.0/examples/jsm/loaders/STLLoader",
-    "@react-three/drei": "https://esm.sh/@react-three/drei@v9.19.7",
-    "@react-three/fiber": "https://esm.sh/@react-three/fiber@8.3.0"
+    "AsciiEffect": "./utils/js/AsciiEffect.js"
+
   }
 }

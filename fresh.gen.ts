@@ -11,11 +11,12 @@ import * as $5 from "./routes/products/cube.tsx";
 import * as $6 from "./routes/products/index.tsx";
 import * as $$0 from "./islands/BlogSidebar.tsx";
 import * as $$1 from "./islands/CubeProduct.tsx";
-import * as $$2 from "./islands/Logo.tsx";
-import * as $$3 from "./islands/NavBar.tsx";
-import * as $$4 from "./islands/NavWrappedPage.tsx";
-import * as $$5 from "./islands/Post.tsx";
-import * as $$6 from "./islands/RandomPost.tsx";
+import * as $$2 from "./islands/Hero.tsx";
+import * as $$3 from "./islands/Logo.tsx";
+import * as $$4 from "./islands/NavBar.tsx";
+import * as $$5 from "./islands/NavWrappedPage.tsx";
+import * as $$6 from "./islands/Post.tsx";
+import * as $$7 from "./islands/RandomPost.tsx";
 
 const manifest = {
   routes: {
@@ -30,11 +31,12 @@ const manifest = {
   islands: {
     "./islands/BlogSidebar.tsx": $$0,
     "./islands/CubeProduct.tsx": $$1,
-    "./islands/Logo.tsx": $$2,
-    "./islands/NavBar.tsx": $$3,
-    "./islands/NavWrappedPage.tsx": $$4,
-    "./islands/Post.tsx": $$5,
-    "./islands/RandomPost.tsx": $$6,
+    "./islands/Hero.tsx": $$2,
+    "./islands/Logo.tsx": $$3,
+    "./islands/NavBar.tsx": $$4,
+    "./islands/NavWrappedPage.tsx": $$5,
+    "./islands/Post.tsx": $$6,
+    "./islands/RandomPost.tsx": $$7,
   },
   baseUrl: import.meta.url,
 };
