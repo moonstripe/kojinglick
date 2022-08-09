@@ -10,7 +10,7 @@ export default ({ url }: PageProps) => {
     console.log('hello', url.pathname)
 
     const meta: Meta = {
-        title: "KaiCube by Kojin",
+        title: "Cube by Kojin",
         description: "A retro gaming powerhouse in a tiny frame.",
         type: "website"
     }
