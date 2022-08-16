@@ -25,23 +25,12 @@ export default ({ pathname }: _CubeProps) => {
     const CTL_ROTATION_SPEED = 2.5;
 
     const handleScroll = (e) => {
-        setScroll(scroll => scroll > 2000 ? 2000 : scroll < 0 ? 0 : scroll + Math.sign(e.deltaY) * 10)
-    }
-
-    const handleNext = () => {
-        if (section === 0) {
-            setSection(1)
-        }
-        if (section === 1) {
-            setSection(2)
-        }
-        if (section === 2) {
-            setSection(3)
-        }
+        setScroll(scroll => scroll > 2000 ? 2000 : scroll < 0 ? 0 : scroll += Math.sign(e.deltaY) * 10)
     }
 
 
     if (IS_BROWSER) {
+        // check for mobile
         useLayoutEffect(() => {
             let hasTouchScreen = false;
             if ("maxTouchPoints" in navigator) {
@@ -68,17 +57,15 @@ export default ({ pathname }: _CubeProps) => {
                 setDeviceType("Desktop");
             }
         }, [])
-
+        // interval to release touch
         useLayoutEffect(() => {
             const timer = setInterval(() => {
-                console.log('clearing')
                 setMobileTouchX(undefined)
             }, 500)
 
             return () => clearInterval(timer)
         }, [])
-
-
+        // event listener
         useLayoutEffect(() => {
             document.querySelector("body")?.setAttribute('style', 'overflow-y: hidden; position: fixed; background-color: white; overscroll-behavior: contain;')
             document.addEventListener("mousewheel", handleScroll)
@@ -102,7 +89,7 @@ export default ({ pathname }: _CubeProps) => {
             if (scroll < 500) {
                 setSection(0)
             }
-            if (scroll > 500 && scroll < 1000) {
+            if (scroll >= 500 && scroll < 1000) {
                 setSection(1)
             }
             if (scroll >= 1000 && scroll < 1500) {
@@ -134,7 +121,6 @@ export default ({ pathname }: _CubeProps) => {
             controls.autoRotateSpeed = CTL_ROTATION_SPEED
 
             const loader = new STLLoader()
-            const mixerMap = {}
 
             const loadSectionOne = async () => await new Promise((resolve, reject) => {
                 loader.load(
@@ -152,10 +138,10 @@ export default ({ pathname }: _CubeProps) => {
                         resolve(mesh)
                     },
                     (xhr) => {
-                        console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
+                        // console.log(xhr)
                     },
                     (error) => {
-                        console.log(error)
+                        console.error(error)
                         reject()
                     }
                 )
@@ -175,12 +161,12 @@ export default ({ pathname }: _CubeProps) => {
 
                         scene.add(mesh);
                         resolve(mesh)
-                    },
+                    },                    
                     (xhr) => {
-                        console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
+                        // console.log(xhr)
                     },
                     (error) => {
-                        console.log(error)
+                        console.error(error)
                         reject()
                     }
                 )
@@ -200,12 +186,12 @@ export default ({ pathname }: _CubeProps) => {
 
                         scene.add(mesh);
                         resolve(mesh)
-                    },
+                    },                    
                     (xhr) => {
-                        console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
+                        // console.log(xhr)
                     },
                     (error) => {
-                        console.log(error)
+                        console.error(error)
                         reject()
                     }
                 )
@@ -227,10 +213,10 @@ export default ({ pathname }: _CubeProps) => {
                         resolve(mesh)
                     },
                     (xhr) => {
-                        console.log('section 3: ' + (xhr.loaded / xhr.total) * 100 + '% loaded')
+                        // console.log(xhr)
                     },
                     (error) => {
-                        console.log(error)
+                        console.error(error)
                         reject()
                     }
                 )
@@ -252,10 +238,10 @@ export default ({ pathname }: _CubeProps) => {
                         resolve(mesh)
                     },
                     (xhr) => {
-                        console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
+                        // console.log(xhr)
                     },
                     (error) => {
-                        console.log(error)
+                        console.error(error)
                         reject()
                     }
                 )
@@ -277,10 +263,10 @@ export default ({ pathname }: _CubeProps) => {
                         resolve(mesh)
                     },
                     (xhr) => {
-                        console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
+                        // console.log(xhr)
                     },
                     (error) => {
-                        console.log(error)
+                        console.error(error)
                         reject()
                     }
                 )
@@ -291,7 +277,6 @@ export default ({ pathname }: _CubeProps) => {
             (async () => {
                 let m = [await loadSectionOne(), await loadSectionTwoA(), await loadSectionTwoB(), await loadSectionThree(), await loadSectionFourA(), await loadSectionFourB()]
                 setEnvironment({
-                    mixers: mixerMap,
                     models: m,
                     scene,
                     controls,
@@ -308,23 +293,21 @@ export default ({ pathname }: _CubeProps) => {
 
             animate();
 
-            return () => ref.current.removeChild(renderer.domElement);
+            return () => ref?.current?.removeChild(renderer.domElement);
         }, [deviceType])
 
         useLayoutEffect(() => {
 
             if (environment) {
-
-                let s = scroll;
-
-
                 const clock = new THREE.Clock()
 
                 let alpha = 0;
 
                 const section0 = () => {
                     requestAnimationFrame(section0);
+
                     const delta = clock.getDelta()
+                    
                     // Place Fours
                     let fourAPosition = new THREE.Vector3(environment.models[4].position.x, environment.models[4].position.y, 17)
                     let fourBPosition = new THREE.Vector3(environment.models[5].position.x, environment.models[5].position.y, -10.5)
@@ -344,7 +327,7 @@ export default ({ pathname }: _CubeProps) => {
 
                     let newA = alpha += delta
 
-                    if (newA <= 1) {
+                    if (newA < 1) {
                         environment.models[1].position.lerp(twoAPosition, newA);
                         environment.models[2].position.lerp(twoBPosition, newA);
                         environment.models[3].position.lerp(threePosition, newA);
@@ -383,8 +366,7 @@ export default ({ pathname }: _CubeProps) => {
 
                     let newA = alpha += delta
 
-                    if (newA <= 1) {
-                        // console.log('newA', newA)
+                    if (newA < 1) {
                         environment.models[1].position.lerp(twoAPosition, newA);
                         environment.models[2].position.lerp(twoBPosition, newA);
                         environment.models[3].position.lerp(threePosition, newA);
@@ -408,11 +390,10 @@ export default ({ pathname }: _CubeProps) => {
 
                 const section2 = () => {
 
-                    // console.log(requestAnimationFrame(section1));
                     requestAnimationFrame(section2);
 
                     let delta = clock.getDelta()
-                    // console.log('start', environment.models[1].position.z )
+
                     // Yeet Three
                     let threePosition = new THREE.Vector3(environment.models[3].position.x, environment.models[3].position.y, LEAVE_DISTANCE * 10)
 
@@ -428,7 +409,7 @@ export default ({ pathname }: _CubeProps) => {
                     environment.models[2].visible = true;
                     const newA = alpha += delta
 
-                    if (newA <= 1) {
+                    if (newA < 1) {
                         environment.models[1].position.lerp(twoAPosition, newA);
                         environment.models[2].position.lerp(twoBPosition, newA);
 
@@ -465,7 +446,7 @@ export default ({ pathname }: _CubeProps) => {
                     let fourBPosition = new THREE.Vector3(environment.models[2].position.x, environment.models[5].position.y, -LEAVE_DISTANCE * 10)
 
                     const newA = alpha += delta
-                    if (newA <= 1) {
+                    if (newA < 1) {
                         // yeets
                         environment.models[1].position.lerp(twoAPosition, newA);
                         environment.models[2].position.lerp(twoBPosition, newA);
@@ -593,7 +574,7 @@ export default ({ pathname }: _CubeProps) => {
 
                             {
                                 deviceType === "Desktop" ? ['', '', '', ''].map((_, i) => i === section ? (
-                                    <svg class={i === 0 ? tw`ml-0 mr-1` : i === 3 ? tw`mr-0 ml-1` : tw`mx-1`} onClick={() => setSection(i)} width="10px" viewBox="0 0 24 24" stroke="url(#grad1)" fill="url(#grad1)">
+                                    <svg class={i === 0 ? tw`ml-0 mr-1` : i === 3 ? tw`mr-0 ml-1` : tw`mx-1`} onClick={() => {setSection(i); setScroll((i * 500) + 10)}} width="10px" viewBox="0 0 24 24" stroke="url(#grad1)" fill="url(#grad1)">
                                         <defs>
                                             <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
                                                 <stop offset="0%" style="stop-color:#2596be;stop-opacity:1" />
