@@ -14,8 +14,8 @@ export const config: Configuration = {
         'neutral': "#9DB4C0",
         'bg-dark': "#253237",
         'bg-light': "#E0FBFC",
-        'bump-start':"#2596be",
-        'bump-end': "#d22cae"
+        'bump-start': "#2596be",
+        'bump-end': "#d22cae",
       },
       typography:{
         DEFAULT: {
