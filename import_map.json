@@ -16,6 +16,5 @@
     "orbit": "https://esm.sh/three@0.143.0/examples/jsm/controls/OrbitControls",
     "loader": "https://esm.sh/three@0.143.0/examples/jsm/loaders/STLLoader",
     "AsciiEffect": "./utils/js/AsciiEffect.js"
-
   }
 }
