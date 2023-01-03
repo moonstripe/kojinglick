@@ -14,7 +14,7 @@ I started my grad program in Non-Proliferation and Terrorism Studies at the Midd
 - My Japanese skills have improved significantly after two semesters of being forced to do the Intermediate-Advanced and Advanced Japanese courses. Even my ability to throw together thoughts in writing has improved. Very excited to see more development.
   - Takeaway: I'm still illiterate, but boy can I convince people I'm good at Japanese.
 
-Otherwise, socially I've had a lot of fun. From backpacking trips, to hikes with grad school colleagues, I think I've really been able to start growing my social safety net for the first time since 2019.
+Socially, I've had a lot of fun. From backpacking trips, to hikes with grad school colleagues, I think I've really been able to start growing my social safety net for the first time since 2019.
 
 ## 2023 Goals
 
