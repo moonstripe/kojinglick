@@ -34,6 +34,6 @@ Otherwise, I'm just going to continue to be me. Starting with a trip to see frie
 
 Can't wait to see what 2023 brings!
 
-Best,
+- Best,
 
-Kojin
+- Kojin
