@@ -30,9 +30,9 @@ My goal of attending MIIS was to finally get published, and it's looking like a 
 - Wake up earlier.
 - Cook more.
 
-Otherwise, I'm just going to continue to be me.
+Otherwise, I'm just going to continue to be me. Starting with a trip to see friends down South.
 
-Can't wait to see what 2023 brings,
+Can't wait to see what 2023 brings!
 
 Best,
 
