@@ -1,7 +1,6 @@
 import { IS_BROWSER } from "fresh/runtime.ts";
 import { Configuration, setup } from "twind";
 import typography from '@twind/typography'
-import { lineClamp } from '@twind/line-clamp'
 export * from "twind";
 export const config: Configuration = {
   theme: {
@@ -32,7 +31,6 @@ export const config: Configuration = {
   darkMode: "class",
   mode: "silent",
   plugins: {
-    'line-clamp': lineClamp,
     ...typography({
       className: 'prose', // Defaults to 'prose'
     }),

@@ -20,7 +20,7 @@ export default function Side({ markdown }: SideProps) {
                         e.slice(0, 3) === "###" ? (
                             <li class={tw`ml-2 text-sm text-gray-500 dark:text-green-600 hover:text-black dark:hover:text-green-400`}>
                                 <a href={`#${e.slice(3, e.length).trim().replaceAll(' ', '-').replaceAll("'", '-').toLowerCase()}`}>
-                                    <p class={tw`line-clamp-`}>
+                                    <p class={tw``}>
                                         {e.replace(/[^\w'-]/g, " ").trim()}
                                     </p>
                                 </a>
@@ -29,7 +29,7 @@ export default function Side({ markdown }: SideProps) {
                             <li class={tw`text-gray-500 dark:text-green-600 hover:text-black dark:hover:text-green-400`}>
                                 {i != 0 ? <br /> : null}
                                 <a href={`#${e.slice(2, e.length).trim().replaceAll(' ', '-').replaceAll("'", '-').toLowerCase()}`}>
-                                    <p class={tw`line-clamp-2`}>
+                                    <p class={tw``}>
                                         {e.replace(/[^\w'-]/g, " ").trim()}
                                     </p>
                                 </a>
