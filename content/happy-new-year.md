@@ -14,6 +14,11 @@ I started my grad program in Non-Proliferation and Terrorism Studies at the Midd
 - My Japanese skills have improved significantly after two semesters of being forced to do the Intermediate-Advanced and Advanced Japanese courses. Even my ability to throw together thoughts in writing has improved. Very excited to see more development.
   - Takeaway: I'm still illiterate, but boy can I convince people I'm good at Japanese.
 
+When it came to [Moonstripe Design]('https://www.moonstripe.com/): 2022 was a big year
+- I wrapped up a contract with [PrivacyCode](https://www.privacycode.ai/), adding their slider and blog systems.
+- I just finished a contract with [Navab Law](https://www.navablaw.com/), adding their digital presence to the internet, and also engineering an email forwarder to ease client intake.
+- I also built the [Open Ethereum Map](https://opencryptomap.deno.dev/) and learned D3.
+
 Socially, I've had a lot of fun. From backpacking trips, to hikes with grad school colleagues, I think I've really been able to start growing my social safety net for the first time since 2019.
 
 ## 2023 Goals

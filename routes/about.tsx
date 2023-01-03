@@ -36,7 +36,7 @@ export default (props: PageProps) => {
                 <li class={tw`text-gray-600 dark:text-green-400 text-xl`}>I have bachelor's degrees in <a href='https://mediastudies.ugis.berkeley.edu/' target="_blank" class={tw`text-black dark:text-neutral`}>Media Studies</a> and <a href='https://polisci.berkeley.edu/' target="_blank" class={tw`text-black dark:text-neutral`}>Political Science</a> from <a href='https://www.berkeley.edu/' target="_blank" class={tw`text-black dark:text-neutral`}>UC Berkeley</a>.</li>
             </ul>
 
-            <h1 class={tw`text-xl dark:text-green-200 text-4xl list-none`}>Works</h1>
+            <h1 class={tw`text-xl dark:text-green-200 text-4xl`}>Works</h1>
             <p class={tw`mb-4 text-xl text-gray-600 dark:text-green-400 mt-4`}>I'll add projects I'm proud of here.</p>
         </Layout>
     );
