@@ -18,4 +18,4 @@ Otherwise, socially I've had a lot of fun. From backpacking trips, to hikes with
 
 ## 2023 Goals
 
-- [] My goal of attending MIIS was to finally get published, and it's looking like a reality with CTEC. 
+-[] My goal of attending MIIS was to finally get published, and it's looking like a reality with CTEC. 
