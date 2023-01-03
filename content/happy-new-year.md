@@ -9,3 +9,4 @@ It's been a while, since the end of last semester was a bit of a doozy. I just w
 ## 2022 Accomplishments
 
 - I started my grad program in Non-Proliferation and Terrorism Studies at the Middlebury Institute of International Studies at Monterey. It's been a fantastic year, with many fond memories to look back on. 
+  - Hello
