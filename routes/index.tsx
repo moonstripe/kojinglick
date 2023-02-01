@@ -51,7 +51,7 @@ export default ({ data, url }: PageProps) => {
 
     return (
         <div class={tw`w-screen h-screen flex flex-col`}>
-            <div class={tw`absolute t-0 l-0 w-screen h-screen my-auto`}>
+            <div class={tw`absolute t-0 l-0 w-screen h-screen my-auto z-50`}>
                 <Hero />
             </div>
             <Layout meta={meta}>
