@@ -73,6 +73,6 @@ export default ({ }: any) => {
 
     return (
 
-        <div ref={ref} class={tw`select-none h-screen opacity-30 pt-16 pl-16`}/>
+        <div ref={ref} class={tw`select-none h-screen opacity-30 lg:pt-16 lg:pl-16`}/>
     )
 }
