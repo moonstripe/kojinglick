@@ -60,8 +60,8 @@ export default ({ }: any) => {
             function animate() {
                 requestAnimationFrame(animate);
                 controls.update();
-                torus.rotation.x += 0.01;
-                torus.rotation.y += 0.01;
+                torus.rotation.x += 0.001;
+                torus.rotation.y += 0.001;
                 effect.render(scene, camera);
             }
             animate();
