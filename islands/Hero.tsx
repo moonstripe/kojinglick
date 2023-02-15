@@ -1,20 +1,20 @@
 /** @jsx h */
 import { h } from 'preact'
-import { useLayoutEffect, useRef } from 'preact/hooks'
+import { useLayoutEffect, useRef, MutableRef } from 'preact/hooks'
 import { IS_BROWSER } from 'fresh/runtime.ts'
 import { tw } from 'twind'
 import * as THREE from "three"
 import { AsciiEffect } from "AsciiEffect"
 import { OrbitControls } from "orbit"
 
-export default ({ }: any) => {
-    const ref = useRef<HTMLDivElement>()
+export default () => {
+    const ref = useRef<HTMLDivElement>() as MutableRef<HTMLDivElement>
 
     if (IS_BROWSER) {
         useLayoutEffect(() => {
 
-            const WIDTH = ref.current?.offsetWidth;
-            const HEIGHT = ref.current?.offsetHeight;
+            const WIDTH = ref.current!.offsetWidth;
+            const HEIGHT = ref.current!.offsetHeight;
 
             console.log('h:', HEIGHT)
             console.log('w:', WIDTH)
@@ -53,7 +53,7 @@ export default ({ }: any) => {
             controls.enableRotate = false;
 
 
-            ref.current.appendChild(effect.domElement);
+            ref.current!.appendChild(effect.domElement);
 
             camera.position.z = 150;
 
@@ -66,13 +66,12 @@ export default ({ }: any) => {
             }
             animate();
 
-            return () => ref.current.removeChild(effect.domElement);
+            return () => ref.current!.removeChild(effect.domElement);
 
         }, [])
     }
 
     return (
-
         <div ref={ref} class={tw`select-none h-screen opacity-30 lg:pt-16 lg:pl-16 -z-50`}/>
     )
 }
