@@ -28,6 +28,7 @@ export default (props: PageProps) => {
                 <h1 class={tw`text-4xl dark:text-green-200`}>Bio</h1>
 
                 <ul class={tw`list-disc ml-4 mb-4 mt-4 list-none`}>
+                    
                     <li class={tw`text-gray-600 dark:text-green-400 mb-2 text-xl`}>I run <a href='https://www.moonstripe.com' target="_blank" class={tw`text-black dark:text-neutral`}>moonstripe design</a>.</li>
 
                     <li class={tw`text-gray-600 dark:text-green-400 mb-2 text-xl`}>I am a Master's Candidate in <a href='https://www.middlebury.edu/institute/academics/degree-programs/nonproliferation-terrorism-studies' target="_blank" class={tw`text-black dark:text-neutral`}>Non-Proliferation and Terrorism Studies</a> at <a href='https://www.middlebury.edu/institute/' target="_blank" class={tw`text-black dark:text-neutral`}>Middlebury Institute for International Studies at Monterey</a>.</li>

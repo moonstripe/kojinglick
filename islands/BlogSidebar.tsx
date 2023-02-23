@@ -25,7 +25,7 @@ export default function Side({ markdown }: SideProps) {
                 // if hover: list, else: +
                 hover ? (
                     <ul
-                        class={tw`rounded-lg p-2 border-2 border-yellow-500`}
+                        class={tw`p-2`}
                         style={{ backdropFilter: 'blur(10px)' }}
                     >
                         <li class={tw`rotate-45 align-middle select-none text-2xl transition`} style={{ maxWidth: "1ch" }}>+</li>
