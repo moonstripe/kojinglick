@@ -31,10 +31,12 @@ export default (props: PageProps) => {
                     <li class={tw`text-gray-600 dark:text-green-400 mb-2 text-xl`}>I run <a href='https://www.moonstripe.com' target="_blank" class={tw`text-black dark:text-neutral`}>moonstripe design</a>.</li>
 
                     <li class={tw`text-gray-600 dark:text-green-400 mb-2 text-xl`}>I am a Master's Candidate in <a href='https://www.middlebury.edu/institute/academics/degree-programs/nonproliferation-terrorism-studies' target="_blank" class={tw`text-black dark:text-neutral`}>Non-Proliferation and Terrorism Studies</a> at <a href='https://www.middlebury.edu/institute/' target="_blank" class={tw`text-black dark:text-neutral`}>Middlebury Institute for International Studies at Monterey</a>.</li>
+                   
+                    <li class={tw`text-gray-600 dark:text-green-400 mb-2 text-xl ml-4`}>I am a Graduate Research Assistant at the <a href='https://www.middlebury.edu/institute/academics/centers-initiatives/ctec' target="_blank" class={tw`text-black dark:text-neutral`}>Center on Terrorism, Extremism, and Counter-Terrorism</a>.</li>
+
+                    <li class={tw`text-gray-600 dark:text-green-400 mb-2 text-xl ml-4`}>I am a Spring 2023 <a href='https://www.middlebury.edu/institute/academics/centers-initiatives/ctec/michael-donnelly-ctec-research-fellowship' target="_blank" class={tw`text-black dark:text-neutral`}>Michael Donnelly Fellow</a>.</li>
 
                     <li class={tw`text-gray-600 dark:text-green-400 mb-2 text-xl ml-4`}>I am a 2022 <a href='https://www.middlebury.edu/institute/news/former-institute-president-and-spouse-donate-home-fund-scholarships' target="_blank" class={tw`text-black dark:text-neutral`}>Gard 'N Wall Non-Proliferation Scholar</a>.</li>
-
-                    <li class={tw`text-gray-600 dark:text-green-400 mb-2 text-xl ml-4`}>I am a Graduate Research Assistant at the <a href='https://www.middlebury.edu/institute/academics/centers-initiatives/ctec' target="_blank" class={tw`text-black dark:text-neutral`}>Center on Terrorism, Extremism, and Counter-Terrorism</a>.</li>
 
                     <li class={tw`text-gray-600 dark:text-green-400 mb-2 text-xl`}>I am certified in <a href='https://www.parchment.com/u/award/d94292951a664e9746f8dbf22a58d844' target="_blank" class={tw`text-black dark:text-neutral`}>Full-Stack Web Development</a> from <a href='https://extension.berkeley.edu/public/category/courseCategoryCertificateProfile.do?method=load&certificateId=32408422' target="_blank" class={tw`text-black dark:text-neutral`}>UC Berkeley</a>.</li>
 
