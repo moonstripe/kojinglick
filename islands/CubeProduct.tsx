@@ -24,7 +24,7 @@ export default ({ pathname }: _CubeProps) => {
 
     const CTL_ROTATION_SPEED = 2.5;
 
-    const handleScroll = (e) => {
+    const handleScroll = (e: WheelEvent) => {
         setScroll(scroll => scroll > 2000 ? 2000 : scroll < 0 ? 0 : scroll += Math.sign(e.deltaY) * 10)
     }
 
@@ -35,8 +35,6 @@ export default ({ pathname }: _CubeProps) => {
             let hasTouchScreen = false;
             if ("maxTouchPoints" in navigator) {
                 hasTouchScreen = navigator.maxTouchPoints > 0;
-            } else if ("msMaxTouchPoints" in navigator) {
-                hasTouchScreen = navigator.msMaxTouchPoints > 0;
             } else {
                 const mQ = window.matchMedia("(pointer:coarse)");
                 if (mQ && mQ.media === "(pointer:coarse)") {
@@ -45,10 +43,7 @@ export default ({ pathname }: _CubeProps) => {
                     hasTouchScreen = true; // deprecated, but good fallback
                 } else {
                     // Only as a last resort, fall back to user agent sniffing
-                    var UA = navigator.userAgent;
-                    hasTouchScreen =
-                        /\b(BlackBerry|webOS|iPhone|IEMobile)\b/i.test(UA) ||
-                        /\b(Android|Windows Phone|iPad|iPod)\b/i.test(UA);
+                    console.log("no responsivity")
                 }
             }
             if (hasTouchScreen) {
@@ -68,7 +63,7 @@ export default ({ pathname }: _CubeProps) => {
         // event listener
         useLayoutEffect(() => {
             document.querySelector("body")?.setAttribute('style', 'overflow-y: hidden; position: fixed; background-color: white; overscroll-behavior: contain;')
-            document.addEventListener("mousewheel", handleScroll)
+            document.addEventListener("mousewheel", handleScroll);
 
             document.addEventListener("touchmove", (e) => {
                 if (mobileTouchX) {
@@ -275,7 +270,7 @@ export default ({ pathname }: _CubeProps) => {
             camera.position.z = 150;
 
             (async () => {
-                let m = [await loadSectionOne(), await loadSectionTwoA(), await loadSectionTwoB(), await loadSectionThree(), await loadSectionFourA(), await loadSectionFourB()]
+                const m = [await loadSectionOne(), await loadSectionTwoA(), await loadSectionTwoB(), await loadSectionThree(), await loadSectionFourA(), await loadSectionFourB()]
                 setEnvironment({
                     models: m,
                     scene,
@@ -309,15 +304,15 @@ export default ({ pathname }: _CubeProps) => {
                     const delta = clock.getDelta()
                     
                     // Place Fours
-                    let fourAPosition = new THREE.Vector3(environment.models[4].position.x, environment.models[4].position.y, 17)
-                    let fourBPosition = new THREE.Vector3(environment.models[5].position.x, environment.models[5].position.y, -10.5)
+                    const fourAPosition = new THREE.Vector3(environment.models[4].position.x, environment.models[4].position.y, 17)
+                    const fourBPosition = new THREE.Vector3(environment.models[5].position.x, environment.models[5].position.y, -10.5)
 
                     // Place Three
-                    let threePosition = new THREE.Vector3(environment.models[3].position.x, environment.models[3].position.y, 19);
+                    const threePosition = new THREE.Vector3(environment.models[3].position.x, environment.models[3].position.y, 19);
 
                     // Place Twos
-                    let twoAPosition = new THREE.Vector3(environment.models[1].position.x, environment.models[1].position.y, 4);
-                    let twoBPosition = new THREE.Vector3(environment.models[2].position.x, environment.models[2].position.y, -12);
+                    const twoAPosition = new THREE.Vector3(environment.models[1].position.x, environment.models[1].position.y, 4);
+                    const twoBPosition = new THREE.Vector3(environment.models[2].position.x, environment.models[2].position.y, -12);
 
                     environment.models[1].visible = true;
                     environment.models[2].visible = true;
@@ -325,7 +320,7 @@ export default ({ pathname }: _CubeProps) => {
                     environment.models[4].visible = true;
                     environment.models[5].visible = true;
 
-                    let newA = alpha += delta
+                    const newA: number = alpha += delta
 
                     if (newA < 1) {
                         environment.models[1].position.lerp(twoAPosition, newA);
@@ -350,21 +345,21 @@ export default ({ pathname }: _CubeProps) => {
                     const delta = clock.getDelta()
 
                     // Yeet Fours
-                    let fourAPosition = new THREE.Vector3(environment.models[1].position.x, environment.models[4].position.y, LEAVE_DISTANCE * 10)
-                    let fourBPosition = new THREE.Vector3(environment.models[2].position.x, environment.models[5].position.y, -LEAVE_DISTANCE * 10)
+                    const fourAPosition = new THREE.Vector3(environment.models[1].position.x, environment.models[4].position.y, LEAVE_DISTANCE * 10)
+                    const fourBPosition = new THREE.Vector3(environment.models[2].position.x, environment.models[5].position.y, -LEAVE_DISTANCE * 10)
 
                     // Place Three
-                    let threePosition = new THREE.Vector3(environment.models[3].position.x, environment.models[3].position.y, 19)
+                    const threePosition = new THREE.Vector3(environment.models[3].position.x, environment.models[3].position.y, 19)
 
                     // Place Twos
-                    let twoAPosition = new THREE.Vector3(environment.models[1].position.x, environment.models[1].position.y, 4);
-                    let twoBPosition = new THREE.Vector3(environment.models[2].position.x, environment.models[2].position.y, -12);
+                    const twoAPosition = new THREE.Vector3(environment.models[1].position.x, environment.models[1].position.y, 4);
+                    const twoBPosition = new THREE.Vector3(environment.models[2].position.x, environment.models[2].position.y, -12);
 
                     environment.models[1].visible = true;
                     environment.models[2].visible = true;
                     environment.models[3].visible = true;
 
-                    let newA = alpha += delta
+                    const newA: number = alpha += delta
 
                     if (newA < 1) {
                         environment.models[1].position.lerp(twoAPosition, newA);
@@ -392,18 +387,18 @@ export default ({ pathname }: _CubeProps) => {
 
                     requestAnimationFrame(section2);
 
-                    let delta = clock.getDelta()
+                    const delta = clock.getDelta()
 
                     // Yeet Three
-                    let threePosition = new THREE.Vector3(environment.models[3].position.x, environment.models[3].position.y, LEAVE_DISTANCE * 10)
+                    const threePosition = new THREE.Vector3(environment.models[3].position.x, environment.models[3].position.y, LEAVE_DISTANCE * 10)
 
                     // Yeet Fours
-                    let fourAPosition = new THREE.Vector3(environment.models[1].position.x, environment.models[4].position.y, LEAVE_DISTANCE * 10)
-                    let fourBPosition = new THREE.Vector3(environment.models[2].position.x, environment.models[5].position.y, -LEAVE_DISTANCE * 10)
+                    const fourAPosition = new THREE.Vector3(environment.models[1].position.x, environment.models[4].position.y, LEAVE_DISTANCE * 10)
+                    const fourBPosition = new THREE.Vector3(environment.models[2].position.x, environment.models[5].position.y, -LEAVE_DISTANCE * 10)
 
                     // Place Twos
-                    let twoAPosition = new THREE.Vector3(environment.models[1].position.x, environment.models[1].position.y, 4);
-                    let twoBPosition = new THREE.Vector3(environment.models[2].position.x, environment.models[2].position.y, -12);
+                    const twoAPosition = new THREE.Vector3(environment.models[1].position.x, environment.models[1].position.y, 4);
+                    const twoBPosition = new THREE.Vector3(environment.models[2].position.x, environment.models[2].position.y, -12);
 
                     environment.models[1].visible = true;
                     environment.models[2].visible = true;
@@ -433,17 +428,17 @@ export default ({ pathname }: _CubeProps) => {
 
                 const section3 = () => {
                     requestAnimationFrame(section3)
-                    let delta = clock.getDelta()
+                    const delta = clock.getDelta()
                     // Yeet Twos
-                    let twoAPosition = new THREE.Vector3(environment.models[1].position.x, environment.models[1].position.y, LEAVE_DISTANCE * 10)
-                    let twoBPosition = new THREE.Vector3(environment.models[2].position.x, environment.models[2].position.y, -LEAVE_DISTANCE * 10)
+                    const twoAPosition = new THREE.Vector3(environment.models[1].position.x, environment.models[1].position.y, LEAVE_DISTANCE * 10)
+                    const twoBPosition = new THREE.Vector3(environment.models[2].position.x, environment.models[2].position.y, -LEAVE_DISTANCE * 10)
 
                     // Yeet Three
-                    let threePosition = new THREE.Vector3(environment.models[3].position.x, environment.models[3].position.y, LEAVE_DISTANCE * 10)
+                    const threePosition = new THREE.Vector3(environment.models[3].position.x, environment.models[3].position.y, LEAVE_DISTANCE * 10)
 
                     // Yeet Fours
-                    let fourAPosition = new THREE.Vector3(environment.models[1].position.x, environment.models[4].position.y, LEAVE_DISTANCE * 10)
-                    let fourBPosition = new THREE.Vector3(environment.models[2].position.x, environment.models[5].position.y, -LEAVE_DISTANCE * 10)
+                    const fourAPosition = new THREE.Vector3(environment.models[1].position.x, environment.models[4].position.y, LEAVE_DISTANCE * 10)
+                    const fourBPosition = new THREE.Vector3(environment.models[2].position.x, environment.models[5].position.y, -LEAVE_DISTANCE * 10)
 
                     const newA = alpha += delta
                     if (newA < 1) {

@@ -29,6 +29,7 @@ export interface RandomProps {
 
 export interface PostModel {
     slug: string,
+    order: number,
     date: string,
     title: string
 }

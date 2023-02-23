@@ -23,9 +23,9 @@ export const handler: Handlers = {
                 const path = `content/${item.name}`
                 const file = await Deno.readTextFile(path);
                 const titleString = file.split("\n")[0];
-                const dateString = file.split("\n")[2]
+                const dateString = parseInt(file.split("\n")[2]);
 
-                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                const options: Intl.DateTimeFormatOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
                 blogArticles.push({
                     slug: item.name,
@@ -94,7 +94,7 @@ export default ({ data, url }: PageProps) => {
                     <div class={tw`container my-4`}>
                         <h1 class={tw`visible text-transparent text-4xl py-1 bg-clip-text bg-gradient-to-br dark:from-green-400 dark:via-lime-200 dark:to-yellow-600 from-yellow-600 via-lime-200 to-green-400 mb-4`}>Thoughts</h1>
                         {
-                            data.blogArticles.map((e: PostModel, i) => i < 7 ? (
+                            data.blogArticles.map((e: PostModel, i: number) => i < 7 ? (
                                 <div class={tw`my-3`}>
                                     <a href={`/${e.slug.split('.')[0]}`}>
                                         <h1 class={tw`text-2xl text-gray-700 dark:text-green-200`}>{e.title.slice(2, e.title.length)}</h1>

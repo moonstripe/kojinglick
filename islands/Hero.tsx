@@ -8,7 +8,7 @@ import { AsciiEffect } from "AsciiEffect"
 import { OrbitControls } from "orbit"
 
 export default () => {
-    const ref = useRef<HTMLDivElement>() as MutableRef<HTMLDivElement>
+    const ref = useRef<HTMLDivElement>(null);
 
     if (IS_BROWSER) {
         useLayoutEffect(() => {
