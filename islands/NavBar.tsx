@@ -14,6 +14,10 @@ const routeMap: Array<Route> =
         pathname: "/"
     },
     {
+        name: "blog",
+        pathname: "/blog"
+    },
+    {
         name: "about",
         pathname: "/about"
     },
