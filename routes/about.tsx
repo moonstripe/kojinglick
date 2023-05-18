@@ -46,7 +46,6 @@ export default (props: PageProps) => {
 
                 <h1 class={tw`text-xl dark:text-green-200 text-4xl`}>Works</h1>
                 <ul class={tw`list-disc ml-4 mb-4 mt-4 list-none`}>
-
                     <li class={tw`text-gray-600 dark:text-green-400 mb-2 text-xl`}>March, 2023: <a href='https://www.middlebury.edu/institute/academics/centers-initiatives/ctec/ctec-publications/changing-face-wagner-group-military' target="_blank" class={tw`text-black dark:text-neutral`}>The Changing Face of the Wagner Group: From Military Adventurism to Venture Capitalism</a></li>
                     <li class={tw`text-gray-600 dark:text-green-400 mb-2 text-xl ml-4`}>This paper examines the emergence of Prigozhin's Wagner Group and its evolution from conducting security operations in Syria and Africa to establishing a modern business center in St. Petersburg, providing insights into its role in advancing Russia's foreign policy goals.</li>
                     <li class={tw`text-gray-600 dark:text-green-400 mb-2 text-xl`}>March, 2023: <a href='https://www.middlebury.edu/institute/academics/centers-initiatives/ctec/ctec-publications/wagner-groups-social-footprint-time-series' target="_blank" class={tw`text-black dark:text-neutral`}>The Wagner Group's Social Footprint: A Time-Series Sentiment Analysis of PMC World</a></li>
