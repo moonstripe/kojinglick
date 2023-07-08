@@ -1,6 +1,3 @@
-/** @jsx h */
-import { h } from "preact";
-import { tw } from "@twind";
 import { Head } from "fresh/runtime.ts";
 import { Meta, LayoutProps } from "../utils/types/index.ts"
 
@@ -62,7 +59,7 @@ const SEO = ({ customMeta }: Meta) => {
 
 export default ({ children, ...customMeta }: LayoutProps) => {
     return (
-        <main class={tw`mx-auto mb-4 max-w-screen-md w-8/12 overscroll-contain`}>
+        <main class="mx-auto mb-4 max-w-screen-md w-8/12 overscroll-contain">
             <SEO customMeta={customMeta} />
             {children}
         </main>

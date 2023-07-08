@@ -1,5 +1,3 @@
-/** @jsx h */
-import { h } from 'preact'
 import { useLayoutEffect, useRef, MutableRef } from 'preact/hooks'
 import { IS_BROWSER } from 'fresh/runtime.ts'
 import { tw } from 'twind'
@@ -8,7 +6,7 @@ import { AsciiEffect } from "AsciiEffect"
 import { OrbitControls } from "orbit"
 
 export default () => {
-    const ref = useRef<HTMLDivElement>(null);
+    const ref = useRef(null);
 
     if (IS_BROWSER) {
         useLayoutEffect(() => {
@@ -72,6 +70,6 @@ export default () => {
     }
 
     return (
-        <div ref={ref} class={tw`select-none h-screen opacity-30 lg:pt-16 lg:pl-16 -z-50`}/>
+        <div ref={ref} class="select-none h-screen opacity-30 lg:pt-16 lg:pl-16 -z-50"/>
     )
 }

@@ -1,7 +1,4 @@
-/** @jsx h */
 import { IS_BROWSER } from "fresh/runtime.ts";
-import { h } from "preact";
-
 export default (props: any) => {
 
     const { setter } = props;

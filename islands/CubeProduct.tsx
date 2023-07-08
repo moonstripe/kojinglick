@@ -1,5 +1,3 @@
-/** @jsx h */
-import { h, Fragment } from "preact"
 import { useState, useLayoutEffect, useRef } from "preact/hooks"
 import { IS_BROWSER } from "fresh/runtime.ts"
 import { tw } from "twind"
@@ -489,14 +487,14 @@ export default ({ pathname }: _CubeProps) => {
 
 
     return (
-        <div class={tw`absolute top-0 left-0 w-screen h-screen flex flex-row`} style={{ overflowY: "hidden" }}>
-            <div class={tw`w-full md:w-5/6 mx-auto grid grid-cols-1 md:grid-cols-2 h-2/3 my-0 md:my-auto md:h-full`}>
-                <div class={tw`col-span-1 h-full md:h-full relative`}>
-                    <div ref={ref} class={tw`h-full w-full md:h-full`}></div>
+        <div class="absolute top-0 left-0 w-screen h-screen flex flex-row" style={{ overflowY: "hidden" }}>
+            <div class="w-full md:w-5/6 mx-auto grid grid-cols-1 md:grid-cols-2 h-2/3 my-0 md:my-auto md:h-full">
+                <div class="col-span-1 h-full md:h-full relative">
+                    <div ref={ref} class="h-full w-full md:h-full"></div>
                 </div>
-                <div class={tw`col-span-1 flex flex-col h-1/2 md:h-full w-3/4 mx-auto md:w-auto md:mr-0 md: ml-4`} id="scroll">
-                    <div class={tw`h-5/12 my-auto`}>
-                    <div class={tw`mt-0 mb-auto flex flex-row py-4`}>
+                <div class="col-span-1 flex flex-col h-1/2 md:h-full w-3/4 mx-auto md:w-auto md:mr-0 md: ml-4" id="scroll">
+                    <div class="h-5/12 my-auto">
+                    <div class="mt-0 mb-auto flex flex-row py-4">
                     {
                         deviceType === "Mobile" ? ['', '', '', ''].map((_, i) => i === section ? (
                             <svg class={i === 0 ? tw`ml-0 mr-1` : i === 3 ? tw`mr-0 ml-1` : tw`mx-1`} onClick={() => setSection(i)} width="10px" viewBox="0 0 24 24" stroke="url(#grad1)" fill="url(#grad1)">
@@ -521,21 +519,21 @@ export default ({ pathname }: _CubeProps) => {
                         )) : null
                     }
                     </div>
-                        <div class={tw`my-auto`}>
-                            <h1 class={tw`py-1 text-transparent text-4xl bg-clip-text bg-gradient-to-br dark:from-bump-start dark:via-lime-200 dark:to-bump-end from-bump-end via-lime-200 to-bump-start`}>_Cube</h1>
-                            <p class={tw`font-light`}>The Essential Retro Console</p>
+                        <div class="my-auto">
+                            <h1 class="py-1 text-transparent text-4xl bg-clip-text bg-gradient-to-br dark:from-bump-start dark:via-lime-200 dark:to-bump-end from-bump-end via-lime-200 to-bump-start">_Cube</h1>
+                            <p class="font-light">The Essential Retro Console</p>
                         </div>
-                        <div class={tw`my-auto flex flex-row py-4`}>
-                            <div class={tw`w-fit border-transparent rounded border-solid border-2 bg-clip-border bg-gradient-to-br dark:from-bump-start dark:via-lime-200 dark:to-bump-end from-bump-end via-lime-200 to-bump-start`}>
-                                <button class={tw`py-2 px-4 bg-white`}>Buy Now</button>
+                        <div class="my-auto flex flex-row py-4">
+                            <div class="w-fit border-transparent rounded border-solid border-2 bg-clip-border bg-gradient-to-br dark:from-bump-start dark:via-lime-200 dark:to-bump-end from-bump-end via-lime-200 to-bump-start">
+                                <button class="py-2 px-4 bg-white">Buy Now</button>
                             </div>
-                            <button class={tw`w-fit py-2 ml-4 disabled:text-gray-600 disabled:opacity-75 pointer-events-none focus:outline-none`} disabled>$69.95</button>
+                            <button class="w-fit py-2 ml-4 disabled:text-gray-600 disabled:opacity-75 pointer-events-none focus:outline-none" disabled>$69.95</button>
                         </div>
-                        <div class={tw`my-auto py-4 w-full md:w-1/2`}>
+                        <div class="my-auto py-4 w-full md:w-1/2">
                             {
                                 section === 0 ? (
                                     <Fragment>
-                                        <p class={tw`py-1 text-xl`}><p class={tw`inline text-transparent bg-clip-text bg-gradient-to-br dark:from-bump-start dark:via-lime-200 dark:to-bump-end from-bump-end via-lime-200 to-bump-start`}>Get a _Cube</p> as a stylish gift, or deck out your game lair.</p>
+                                        <p class="py-1 text-xl"><p class="inline text-transparent bg-clip-text bg-gradient-to-br dark:from-bump-start dark:via-lime-200 dark:to-bump-end from-bump-end via-lime-200 to-bump-start">Get a _Cube</p> as a stylish gift, or deck out your game lair.</p>
                                     </Fragment>
 
                                 ) : null
@@ -543,7 +541,7 @@ export default ({ pathname }: _CubeProps) => {
                             {
                                 section === 1 ? (
                                     <Fragment>
-                                        <p class={tw`py-1 text-xl`}><p class={tw`inline text-transparent bg-clip-text bg-gradient-to-br dark:from-bump-start dark:via-lime-200 dark:to-bump-end from-bump-end via-lime-200 to-bump-start`}>Customize</p> the LEDs, transparent acrylics, or the front-panel.</p>
+                                        <p class="py-1 text-xl"><p class="inline text-transparent bg-clip-text bg-gradient-to-br dark:from-bump-start dark:via-lime-200 dark:to-bump-end from-bump-end via-lime-200 to-bump-start">Customize</p> the LEDs, transparent acrylics, or the front-panel.</p>
                                     </Fragment>
 
                                 ) : null
@@ -551,7 +549,7 @@ export default ({ pathname }: _CubeProps) => {
                             {
                                 section === 2 ? (
                                     <Fragment>
-                                        <p class={tw`py-1 text-xl`}>Built from the ground up to <p class={tw`inline text-transparent bg-clip-text bg-gradient-to-br dark:from-bump-start dark:via-lime-200 dark:to-bump-end from-bump-end via-lime-200 to-bump-start`}>look good in your living room</p>.</p>
+                                        <p class="py-1 text-xl">Built from the ground up to <p class="inline text-transparent bg-clip-text bg-gradient-to-br dark:from-bump-start dark:via-lime-200 dark:to-bump-end from-bump-end via-lime-200 to-bump-start">look good in your living room</p>.</p>
                                     </Fragment>
 
 
@@ -560,12 +558,12 @@ export default ({ pathname }: _CubeProps) => {
                             {
                                 section >= 3 ? (
                                     <Fragment>
-                                        <p class={tw`py-1 text-xl`}>Play thousands of games across more than <p class={tw`inline text-transparent bg-clip-text bg-gradient-to-br dark:from-bump-start dark:via-lime-200 dark:to-bump-end from-bump-end via-lime-200 to-bump-start`}>20 consoles</p>.</p>
+                                        <p class="py-1 text-xl">Play thousands of games across more than <p class="inline text-transparent bg-clip-text bg-gradient-to-br dark:from-bump-start dark:via-lime-200 dark:to-bump-end from-bump-end via-lime-200 to-bump-start">20 consoles</p>.</p>
                                     </Fragment>
                                 ) : null
                             }
                         </div>
-                        <div class={tw`mt-auto mb-0 flex flex-row py-4`}>
+                        <div class="mt-auto mb-0 flex flex-row py-4">
 
                             {
                                 deviceType === "Desktop" ? ['', '', '', ''].map((_, i) => i === section ? (

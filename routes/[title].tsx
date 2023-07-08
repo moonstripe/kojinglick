@@ -1,5 +1,3 @@
-/** @jsx h */
-import { h } from "preact";
 import { Marked } from "markdown";
 import { Handlers, PageProps } from "fresh/server.ts";
 import { Meta, PostModel } from "../utils/types/index.ts"
